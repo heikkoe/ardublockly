@@ -218,6 +218,37 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '  </category>' +
+'  <category id="catLeds" name="LEDs">' +
+'    <block type="neopixel_settings">' +
+'      <value name="NEOPIXEL_COUNT">' +
+'        <block type="math_number">' +
+'          <field name="NUM">30</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="neopixel_set_led">' +
+'      <value name="NEOPIXEL_LED">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_RED">' +
+'        <block type="math_number">' +
+'          <field name="NUM">127</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_GREEN">' +
+'        <block type="math_number">' +
+'          <field name="NUM">127</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_BLUE">' +
+'        <block type="math_number">' +
+'          <field name="NUM">127</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'  </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +
 '    <block type="serial_setup"></block>' +
