@@ -64,7 +64,7 @@ Blockly.Blocks['neopixel_settings'] = {
 
 Blockly.Blocks['neopixel_set_led'] = {
     /**
-     * Block for setting up a neopixel strip.
+     * Block for setting the color of a rgb led
      * @this Blockly.Block
      */
     init: function() {
@@ -91,6 +91,29 @@ Blockly.Blocks['neopixel_set_led'] = {
       this.appendValueInput('NEOPIXEL_BLUE')
           .appendField(Blockly.Msg.ARD_NEOPIXEL_9) // Blue:
           .setCheck(Blockly.Types.NUMBER.checkList);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setTooltip(Blockly.Msg.ARD_NEOPIXEL_TIP);
+    }
+};
+
+Blockly.Blocks['neopixel_show'] = {
+    /**
+     * Block for setting the color of a rgb led
+     * @this Blockly.Block
+     */
+    init: function() {
+      this.setHelpUrl('https://learn.adafruit.com/adafruit-neopixel-uberguide/the-magic-of-neopixels');
+      this.setColour(Blockly.Blocks.neopixel.HUE);
+      this.appendDummyInput()
+        .appendField(Blockly.Msg.ARD_NEOPIXEL_10) // Set RGB LED
+        .appendField(
+            new Blockly.FieldInstance(
+                'WS2812',
+                Blockly.Msg.ARD_NEOPIXEL_1, // myLedStrip
+                false, true, false
+            ),
+        'WS2812_NAME')
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setTooltip(Blockly.Msg.ARD_NEOPIXEL_TIP);

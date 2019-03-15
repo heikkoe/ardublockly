@@ -59,6 +59,22 @@ Blockly.Arduino['neopixel_set_led'] = function(block) {
   var green = Blockly.Arduino.valueToCode(block, 'NEOPIXEL_GREEN', Blockly.Arduino.ORDER_ATOMIC) || '0';
   var blue = Blockly.Arduino.valueToCode(block, 'NEOPIXEL_BLUE', Blockly.Arduino.ORDER_ATOMIC) || '0';
 
-  var code = stripName + '.setPixelColor(' + ledIdx + ', ' + stripName + '.Color(' + red + ', ' + green + ', ' + blue + '));';
+  var code = stripName + '.setPixelColor(' + ledIdx + ', ' + stripName + '.Color(' + red + ', ' + green + ', ' + blue + '));\n';
+  return code;
+};
+
+/**
+ * Code generator to set an angle (Y) value to a servo pin (X).
+ * Arduino code: #include <Servo.h>
+ *               Servo myServoX;
+ *               setup { myServoX.attach(X); }
+ *               loop  { myServoX.write(Y);  }
+ * @param {!Blockly.Block} block Block to generate the code from.
+ * @return {string} Completed code.
+ */
+Blockly.Arduino['neopixel_show'] = function(block) {
+  var stripName = block.getFieldValue('WS2812_NAME');
+
+  var code = stripName + '.show();\n';
   return code;
 };

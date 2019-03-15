@@ -248,6 +248,7 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
+'    <block type="neopixel_show"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +
