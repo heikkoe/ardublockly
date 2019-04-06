@@ -48,6 +48,8 @@ Blockly.Blocks['neopixel_settings'] = {
         .appendField(Blockly.Msg.ARD_NEOPIXEL_4) // Number of leds
         .setCheck(Blockly.Types.NUMBER.checkList);
     this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.ARD_NEOPIXEL_TIP);
   },
   /**

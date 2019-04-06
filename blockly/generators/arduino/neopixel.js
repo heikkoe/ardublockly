@@ -33,13 +33,14 @@ Blockly.Arduino['neopixel_settings'] = function(block) {
   Blockly.Arduino.addInclude('servo', '#include <Adafruit_NeoPixel.h>');
   Blockly.Arduino.addDeclaration(
     stripName,
-      'Adafruit_NeoPixel ' + stripName + ' = Adafruit_NeoPixel(' + ledCount + ', ' + pinKey + ', NEO_GRB + NEO_KHZ800);'
+      'Adafruit_NeoPixel ' + stripName + ';'
   );
 
-  var setupCode = stripName + '.begin();\n  ' + stripName + '.show()';
-  Blockly.Arduino.addSetup(stripName, setupCode, true);
+  var code =
+      stripName + ' = Adafruit_NeoPixel(' + ledCount + ', ' + pinKey + ', NEO_GRB + NEO_KHZ800);\n'
+      + stripName + '.begin();\n'
+      + stripName + '.show();\n';
 
-  var code = '';
   return code;
 };
 
