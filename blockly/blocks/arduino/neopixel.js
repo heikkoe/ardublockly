@@ -18,7 +18,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.neopixel.HUE = 120;
+Blockly.Blocks.neopixel.HUE = 40;
 
 Blockly.Blocks['neopixel_settings'] = {
   /**
