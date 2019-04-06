@@ -343,7 +343,7 @@ Blockly.Arduino.Boards.profiles.esp32_dev_module = {
   i2c: [['I2C', 'Wire']],
   i2cPins: { Wire: [['SDA', '21'], ['SCL', '22']] },
   i2cSpeed: Blockly.Arduino.Boards.profiles.uno.i2cSpeed,
-  //builtinLed: [['BUILTIN_1', 'D4']],
+  builtinLed: [['BUILTIN_1', '1']],
   interrupt: [['D0', 'D0'], ['D1', 'D1'], ['D2', 'D2'], ['D3', 'D3'],
               ['D4', 'D4'], ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']]
 };
