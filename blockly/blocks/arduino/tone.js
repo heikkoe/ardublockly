@@ -21,10 +21,13 @@ Blockly.Blocks.tone.HUE = 250;
 
 Blockly.Blocks['io_tone'] = {
   init: function() {
+    let pins = Blockly.Arduino.Boards.selected.compilerFlag == 'esp32:esp32:esp32'
+        ? Blockly.Arduino.Boards.selected.pwmPins
+        : Blockly.Arduino.Boards.selected.digitalPins;
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_SETTONE)
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), "TONEPIN");
+          pins), "TONEPIN");
     this.appendValueInput("FREQUENCY")
         .setCheck(Blockly.Types.NUMBER.checkList)
         .appendField(Blockly.Msg.ARD_TONEFREQ);
@@ -61,10 +64,13 @@ Blockly.Blocks['io_tone'] = {
 
 Blockly.Blocks['io_notone'] = {
   init: function() {
+    let pins = Blockly.Arduino.Boards.selected.compilerFlag == 'esp32:esp32:esp32'
+        ? Blockly.Arduino.Boards.selected.pwmPins
+        : Blockly.Arduino.Boards.selected.digitalPins;
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_NOTONE)
         .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), "TONEPIN");
+          pins), "TONEPIN");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(Blockly.Blocks.tone.HUE);
