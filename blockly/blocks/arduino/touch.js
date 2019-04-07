@@ -25,14 +25,14 @@ Blockly.Blocks['touch_sensor_read'] = {
   init: function() {
     this.setColour(Blockly.Blocks.touchSensor.HUE);
     this.setOutput(true, Blockly.Types.NUMBER.output);
-    this.setTooltip(Blockly.Msg.ARD_SERVO_READ_TIP);
+    this.setTooltip(Blockly.Msg.ARD_TOUCH_TIP);
     if(!Blockly.Arduino.Boards.selected.touchPins){
         this.appendDummyInput('INPUT')
-            .appendField('This board has no touch sensors', 'MSG');
+            .appendField(Blockly.Msg.ARD_TOUCH_WARN, 'MSG');
         return;
     }
     this.appendDummyInput('INPUT')
-        .appendField(Blockly.Msg.ARD_SERVO_READ, 'MSG')
+        .appendField(Blockly.Msg.ARD_TOUCH_MSG, 'MSG')
         .appendField(new Blockly.FieldDropdown(
             Blockly.Arduino.Boards.selected.touchPins), 'TOUCH_PIN');
   },
@@ -53,7 +53,7 @@ Blockly.Blocks['touch_sensor_read'] = {
       } else {
         this.getInput('INPUT').removeField('MSG');
         this.getInput('INPUT')
-            .appendField(Blockly.Msg.ARD_SERVO_READ, 'MSG')
+            .appendField(Blockly.Msg.ARD_TOUCH_MSG, 'MSG')
             .appendField(new Blockly.FieldDropdown(
                 Blockly.Arduino.Boards.selected.touchPins), 'TOUCH_PIN');
       }
@@ -62,7 +62,7 @@ Blockly.Blocks['touch_sensor_read'] = {
         this.getInput('INPUT').removeField('MSG');
         this.getInput('INPUT').removeField('TOUCH_PIN');
         this.getInput('INPUT')
-            .appendField('This board has no touch sensors', 'MSG')
+            .appendField(Blockly.Msg.ARD_TOUCH_WARN, 'MSG')
       }
     }
   }
