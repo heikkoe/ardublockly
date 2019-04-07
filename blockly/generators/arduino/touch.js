@@ -25,19 +25,11 @@ goog.require('Blockly.Arduino');
  * @return {array} Completed code with order of operation.
  */
 Blockly.Arduino['touch_sensor_read'] = function(block) {
-    var pinKey = block.getFieldValue('TOUCH_PIN');
-    var servoName = 'myServo' + pinKey;
-  
-    /*Blockly.Arduino.reservePin(
-        block, pinKey, Blockly.Arduino.PinTypes.SERVO, 'Servo Read');
-  
-    Blockly.Arduino.addInclude('servo', '#include <Servo.h>');
-    Blockly.Arduino.addDeclaration('servo_' + pinKey, 'Servo ' + servoName + ';');
-  
-    var setupCode = servoName + '.attach(' + pinKey + ');';
-    Blockly.Arduino.addSetup('servo_' + pinKey, setupCode, true);*/
-  
-    var code = servoName + '.read()';
+    let code = '0';
+    var pin = block.getFieldValue('TOUCH_PIN');
+    if(pin) {
+      code = 'touchRead(' + pin + ')';
+    }
     return [code, Blockly.Arduino.ORDER_ATOMIC];
   };
   
