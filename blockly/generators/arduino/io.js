@@ -94,7 +94,6 @@ Blockly.Arduino['io_analogwrite'] = function(block) {
         '}';
 
     let channel = Blockly.Arduino.Boards.selected.pwmPins.findIndex((e) => {return e[1] == pin});
-    console.log('channel: ' + channel);
     let pwmChannelSetupCode = 'ledcSetup(' + channel + ', 980, 8);';
     Blockly.Arduino.addSetup('io_setup_pwm_channel' + channel, pwmChannelSetupCode, false);
     let pinSetupCode = 'ledcAttachPin(' + pin + ', ' + channel + ');';
