@@ -315,6 +315,39 @@ Blockly.Arduino.Boards.profiles.esp8266_wemos_d1 = {
               ['D4', 'D4'], ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']]
 };
 
+/** ESP32 Dev Module */
+Blockly.Arduino.Boards.profiles.esp32_dev_module = {
+  name: 'ESP32 Dev Module',
+  description: 'ESP32 Dev Module',
+  compilerFlag: 'esp32:esp32:esp32',
+  analogPins: [['A0', 'A0'], ['A3', 'A3'], ['A4', 'A4'], ['A5', 'A5'],
+               ['A6', 'A6'], ['A7', 'A7'], ['A10', 'A10'], ['A11', 'A11'],
+               ['A12', 'A12'], ['A13', 'A13'], ['A14', 'A14'], ['A15', 'A15'],
+               ['A16', 'A16'], ['A17', 'A17'], ['A18', 'A18'], ['A19', 'A19']],
+  digitalPins: [['0', '0'], ['2', '2'], ['4', '4'], ['5', '5'], ['12', '12'],
+                ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16'], ['17', '17'],
+                ['18', '18'], ['19', '19'], ['21', '21'], ['22', '22'], ['23', '23'],
+                ['25', '25'], ['26', '26'], ['27', '27'], ['32', '32'], ['33', '33'],
+                ['34', '34'], ['35', '35'], ['36', '36'], ['37', '37'], ['38', '38'],
+                ['39', '39']],
+  pwmPins: [['0', '0'], ['2', '2'], ['4', '4'], ['5', '5'], ['12', '12'],
+            ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16'], ['17', '17'],
+            ['18', '18'], ['19', '19'], ['21', '21'], ['22', '22'], ['23', '23'],
+            ['25', '25'], ['26', '26'], ['27', '27'], ['32', '32'], ['33', '33']],
+  serial: [['serial', 'Serial']],
+  serialPins: { Serial: [['RX', 'RX'], ['TX', 'TX']] },
+  serialSpeed: Blockly.Arduino.Boards.profiles.uno.serialSpeed,
+  spi: [['SPI', 'SPI']],
+  spiPins: { SPI: [['MOSI', '23'], ['MISO', '19'], ['SCK', '18']] },
+  spiClockDivide: Blockly.Arduino.Boards.profiles.uno.spiClockDivide,
+  i2c: [['I2C', 'Wire']],
+  i2cPins: { Wire: [['SDA', '21'], ['SCL', '22']] },
+  i2cSpeed: Blockly.Arduino.Boards.profiles.uno.i2cSpeed,
+  builtinLed: [['BUILTIN_1', '1']],
+  interrupt: [['D0', 'D0'], ['D1', 'D1'], ['D2', 'D2'], ['D3', 'D3'],
+              ['D4', 'D4'], ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']]
+};
+
 /** Set default profile to Arduino standard-compatible board */
 Blockly.Arduino.Boards.selected = Blockly.Arduino.Boards.profiles.uno;
 
