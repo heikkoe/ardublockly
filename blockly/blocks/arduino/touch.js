@@ -25,14 +25,14 @@ Blockly.Blocks['touch_sensor_read'] = {
   init: function() {
     this.setColour(Blockly.Blocks.touchSensor.HUE);
     this.setOutput(true, Blockly.Types.NUMBER.output);
-    this.setTooltip(Blockly.Msg.ARD_TOUCH_TIP);
+    this.setTooltip(Blockly.Msg.ARD_TOUCH_READ_TIP);
     if(!Blockly.Arduino.Boards.selected.touchPins){
         this.appendDummyInput('INPUT')
-            .appendField(Blockly.Msg.ARD_TOUCH_WARN, 'MSG');
+            .appendField(Blockly.Msg.ARD_TOUCH_WARN + ' (' + Blockly.Arduino.Boards.selected.name + ')', 'MSG');
         return;
     }
     this.appendDummyInput('INPUT')
-        .appendField(Blockly.Msg.ARD_TOUCH_MSG, 'MSG')
+        .appendField(Blockly.Msg.ARD_TOUCH_READ_MSG, 'MSG')
         .appendField(new Blockly.FieldDropdown(
             Blockly.Arduino.Boards.selected.touchPins), 'TOUCH_PIN');
   },
@@ -53,7 +53,7 @@ Blockly.Blocks['touch_sensor_read'] = {
       } else {
         this.getInput('INPUT').removeField('MSG');
         this.getInput('INPUT')
-            .appendField(Blockly.Msg.ARD_TOUCH_MSG, 'MSG')
+            .appendField(Blockly.Msg.ARD_TOUCH_READ_MSG, 'MSG')
             .appendField(new Blockly.FieldDropdown(
                 Blockly.Arduino.Boards.selected.touchPins), 'TOUCH_PIN');
       }
@@ -62,7 +62,58 @@ Blockly.Blocks['touch_sensor_read'] = {
         this.getInput('INPUT').removeField('MSG');
         this.getInput('INPUT').removeField('TOUCH_PIN');
         this.getInput('INPUT')
-            .appendField(Blockly.Msg.ARD_TOUCH_WARN, 'MSG')
+            .appendField(Blockly.Msg.ARD_TOUCH_WARN + ' (' + Blockly.Arduino.Boards.selected.name + ')', 'MSG')
+      }
+    }
+  }
+}
+
+Blockly.Blocks['touch_sensor_touch_detected'] = {
+/**
+   * Block for checking if a touch sensor got touched on an esp32.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(Blockly.Blocks.touchSensor.HUE);
+    this.setOutput(true, Blockly.Types.BOOLEAN.output);
+    this.setTooltip(Blockly.Msg.ARD_TOUCH_WAS_TOUCHED_TIP);
+    if(!Blockly.Arduino.Boards.selected.touchPins){
+        this.appendDummyInput('INPUT')
+            .appendField(Blockly.Msg.ARD_TOUCH_WARN + ' (' + Blockly.Arduino.Boards.selected.name + ')', 'MSG');
+        return;
+    }
+    this.appendDummyInput('INPUT')
+        .appendField(new Blockly.FieldDropdown(
+            Blockly.Arduino.Boards.selected.touchPins), 'TOUCH_PIN')
+        .appendField(Blockly.Msg.ARD_TOUCH_WAS_TOUCHED_MSG, 'MSG');
+  },
+  /** @return {string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.BOOLEAN;
+  },
+  /**
+   * Updates the content of the the pin related fields.
+   * @this Blockly.Block
+   */
+  updateFields: function() {
+    let pinInputExists = this.getFieldValue('TOUCH_PIN');
+    if(Blockly.Arduino.Boards.selected.touchPins){
+      if(pinInputExists) {
+        Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+            this, 'TOUCH_PIN', 'touchPins');
+      } else {
+        this.getInput('INPUT').removeField('MSG');
+        this.getInput('INPUT')
+            .appendField(new Blockly.FieldDropdown(
+                Blockly.Arduino.Boards.selected.touchPins), 'TOUCH_PIN')
+            .appendField(Blockly.Msg.ARD_TOUCH_WAS_TOUCHED_MSG, 'MSG');
+      }
+    } else {
+      if(pinInputExists) {
+        this.getInput('INPUT').removeField('MSG');
+        this.getInput('INPUT').removeField('TOUCH_PIN');
+        this.getInput('INPUT')
+            .appendField(Blockly.Msg.ARD_TOUCH_WARN + ' (' + Blockly.Arduino.Boards.selected.name + ')', 'MSG')
       }
     }
   }

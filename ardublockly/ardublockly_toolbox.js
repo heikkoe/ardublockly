@@ -153,6 +153,7 @@ Ardublockly.TOOLBOX_XML =
 '      </value>'+
 '    </block>' +
 '    <block type="touch_sensor_read"></block>' +
+'    <block type="touch_sensor_touch_detected"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +
