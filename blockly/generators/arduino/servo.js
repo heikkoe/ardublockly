@@ -33,14 +33,26 @@ Blockly.Arduino['servo_write'] = function(block) {
 
   Blockly.Arduino.reservePin(
       block, pinKey, Blockly.Arduino.PinTypes.SERVO, 'Servo Write');
-
-  Blockly.Arduino.addInclude('servo', '#include <Servo.h>');
   Blockly.Arduino.addDeclaration('servo_' + pinKey, 'Servo ' + servoName + ';');
 
-  var setupCode = servoName + '.attach(' + pinKey + ');';
-  Blockly.Arduino.addSetup('servo_' + pinKey, setupCode, true);
+  let setupCode;
+  let code;
+  // the standard servo lib doesn't work with the ESP32
+  if(Blockly.Arduino.Boards.selected.compilerFlag == 'esp32:esp32:esp32'){
+    Blockly.Arduino.addInclude('servo', '#include <ESP32Servo.h>');
+  
+    setupCode =
+        servoName + '.setPeriodHertz(50);\n  ' +
+        servoName + '.attach(' + pinKey + ', 1000, 2000);';
+  
+    code = servoName + '.write(' + servoAngle + ');\n';
+  }else{
+    Blockly.Arduino.addInclude('servo', '#include <Servo.h>');
+    setupCode = servoName + '.attach(' + pinKey + ');';
+    code = servoName + '.write(' + servoAngle + ');\n';
+  }
 
-  var code = servoName + '.write(' + servoAngle + ');\n';
+  Blockly.Arduino.addSetup('servo_' + pinKey, setupCode, true);
   return code;
 };
 
@@ -60,12 +72,25 @@ Blockly.Arduino['servo_read'] = function(block) {
   Blockly.Arduino.reservePin(
       block, pinKey, Blockly.Arduino.PinTypes.SERVO, 'Servo Read');
 
-  Blockly.Arduino.addInclude('servo', '#include <Servo.h>');
   Blockly.Arduino.addDeclaration('servo_' + pinKey, 'Servo ' + servoName + ';');
 
-  var setupCode = servoName + '.attach(' + pinKey + ');';
-  Blockly.Arduino.addSetup('servo_' + pinKey, setupCode, true);
+  let setupCode;
+  let code;
+  // the standard servo lib doesn't work with the ESP32
+  if(Blockly.Arduino.Boards.selected.compilerFlag == 'esp32:esp32:esp32'){
+    Blockly.Arduino.addInclude('servo', '#include <ESP32Servo.h>');
+  
+    setupCode =
+        servoName + '.setPeriodHertz(50);\n  ' +
+        servoName + '.attach(' + pinKey + ', 1000, 2000);';
+  
+    code = servoName + '.read()';
+  }else{
+    Blockly.Arduino.addInclude('servo', '#include <Servo.h>');
+    setupCode = servoName + '.attach(' + pinKey + ');';
+    code = servoName + '.read()';
+  }
 
-  var code = servoName + '.read()';
+  Blockly.Arduino.addSetup('servo_' + pinKey, setupCode, true);
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
