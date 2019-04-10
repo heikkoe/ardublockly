@@ -42,10 +42,5 @@ Blockly.Blocks['wifi_connect'] = {
    * @this Blockly.Block
    */
   updateFields: function() {
-    Blockly.Arduino.Boards.refreshBlockFieldDropdown(this, 'PIN', 'pwmPins');
-  },
-  /** @return {!string} The type of input value for the block, an integer. */
-  getBlockType: function() {
-    return Blockly.Types.NUMBER;
-  },
+  }
 };
