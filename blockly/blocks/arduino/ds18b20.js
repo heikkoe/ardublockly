@@ -57,7 +57,7 @@ Blockly.Blocks['ds18b20_config'] = {
   }
 };
 
-Blockly.Blocks['ds18b20_messure'] = {
+Blockly.Blocks['ds18b20_measure'] = {
   /**
    * Block to tell the sensor to messure the temperature
    * Info in the setHelpUrl link.
@@ -68,7 +68,7 @@ Blockly.Blocks['ds18b20_messure'] = {
     this.setHelpUrl('https://playground.arduino.cc/Learning/OneWire-DE');
     this.setColour(Blockly.Blocks.ds18b20.HUE);
     this.appendDummyInput()
-        .appendField(Blockly.Msg.ARD_DS18B20_MESSURE_MESSURE) // Messure
+        .appendField(Blockly.Msg.ARD_DS18B20_MEASURE_MEASURE) // Measure
         .appendField(
             new Blockly.FieldInstance('ds18b20',
                                       Blockly.Msg.ARD_DS18B20_DEFAULT_NAME, // MyTempSensor
@@ -76,13 +76,13 @@ Blockly.Blocks['ds18b20_messure'] = {
             'DS18B20_NAME');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.ARD_DS18B20_MESSURE_TIP); // Tell the sensor to messure the temperature
+    this.setTooltip(Blockly.Msg.ARD_DS18B20_MEASURE_TIP); // Tell the sensor to measure the temperature
   }
 };
 
 Blockly.Blocks['ds18b20_get_temp'] = {
   /**
-   * Block to get the temperature value in °C of the last messurement.
+   * Block to get the temperature value in °C of the last measurement.
    * Info in the setHelpUrl link.
    * @this Blockly.Block
    */
@@ -98,6 +98,6 @@ Blockly.Blocks['ds18b20_get_temp'] = {
                                       false, true, false),
             'DS18B20_NAME');
     this.setOutput(true, Blockly.Types.NUMBER.output); 
-    this.setTooltip(Blockly.Msg.ARD_DS18B20_GET_TEMP_TIP); // Get the temperature value in °C of the last messurement
+    this.setTooltip(Blockly.Msg.ARD_DS18B20_GET_TEMP_TIP); // Get the temperature value in °C of the last measurement
   }
 };

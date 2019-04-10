@@ -31,11 +31,11 @@ Blockly.Arduino['ds18b20_config'] = function(block) {
 };
 
 /**
- * Code generator for the ds18b20 messurement.
+ * Code generator for the ds18b20 measurement.
  * @param {!Blockly.Block} block Block to generate the code from.
- * @return {string} Code to let the sensores create a messurement.
+ * @return {string} Code to let the sensores create a measurement.
  */
-Blockly.Arduino['ds18b20_messure'] = function(block) {
+Blockly.Arduino['ds18b20_measure'] = function(block) {
   var ds18b20Name = block.getFieldValue('DS18B20_NAME');
 
   return ds18b20Name + '.requestTemperatures();\n';
@@ -44,7 +44,7 @@ Blockly.Arduino['ds18b20_messure'] = function(block) {
 /**
  * Code generator for the ds18b20 get temperature.
  * @param {!Blockly.Block} block Block to generate the code from.
- * @return {string} Code to let the sensores create a messurement.
+ * @return {string} Code to let the sensores create a measurement.
  */
 Blockly.Arduino['ds18b20_get_temp'] = function(block) {
   var ds18b20Name = block.getFieldValue('DS18B20_NAME');
