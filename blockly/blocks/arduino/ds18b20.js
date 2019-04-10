@@ -40,12 +40,20 @@ Blockly.Blocks['ds18b20_config'] = {
                                       true, true, false),
             'DS18B20_NAME')
         .appendField(Blockly.Msg.ARD_DS18B20_SETUP2); // :
-    this.appendDummyInput('PINS')
+    this.appendDummyInput('PIN')
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(Blockly.Msg.ARD_DS18B20_PIN) // pin
         .appendField(new Blockly.FieldDropdown(
             Blockly.Arduino.Boards.selected.digitalPins), 'DS18B20_PIN');
     this.setTooltip(Blockly.Msg.ARD_DS18B20_SETUP_TIP); // Setup DS18B20 temperatur sensor
+  },
+  /**
+   * Updates the content of the the pin related fields.
+   * @this Blockly.Block
+   */
+  updateFields: function() {
+    Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+        this, 'DS18B20_PIN', 'digitalPins');
   }
 };
 
