@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "carlosperate",
-		"lastupdated": "2017-04-24 19:27:01.120000",
+		"lastupdated": "2019-03-15 21:02:01.599000",
 		"locale": "en",
 		"messagedocumentation" : "qqq_ardublockly"
 	},
@@ -51,6 +51,18 @@
 	"ARD_SERIAL_PRINT_NEWLINE": "add new line",
 	"ARD_SERIAL_PRINT_TIP": "Prints data to the console/serial port as human-readable ASCII text.",
 	"ARD_SERIAL_PRINT_WARN": "A setup block for %1 must be added to the workspace to use this block!",
+	"ARD_NEOPIXEL_TIP": "Connect to a NeoPixel LED strip",
+	"ARD_NEOPIXEL_0": "Setup led strip",
+	"ARD_NEOPIXEL_1": "myLedStrip",
+	"ARD_NEOPIXEL_2": ":",
+	"ARD_NEOPIXEL_3": "Data pin",
+	"ARD_NEOPIXEL_4": "Number of leds",
+	"ARD_NEOPIXEL_5": "Set RGB LED",
+	"ARD_NEOPIXEL_6": "LED:",
+	"ARD_NEOPIXEL_7": "Red:",
+	"ARD_NEOPIXEL_8": "Green:",
+	"ARD_NEOPIXEL_9": "Blue:",
+	"ARD_NEOPIXEL_10": "show RGB LEDs",
 	"ARD_SERVO_WRITE": "set SERVO from Pin",
 	"ARD_SERVO_WRITE_TO": "to",
 	"ARD_SERVO_WRITE_DEG_180": "Degrees (0~180)",
