@@ -86,14 +86,29 @@ Blockly.Arduino['io_builtin_led'] = function(block) {
  */
 Blockly.Arduino['io_analogwrite'] = function(block) {
   var pin = block.getFieldValue('PIN');
+  // for the ESP32 analogWrite is not implemented
+  if(Blockly.Arduino.Boards.selected.compilerFlag == 'esp32:esp32:esp32'){
+    Blockly.Arduino.userFunctions_['esp32AnalogWrite'] =
+        'void analogWrite(int channel, int value) {\n' +
+        '  ledcWrite(channel, value);\n' +
+        '}';
+
+    let channel = Blockly.Arduino.Boards.selected.pwmPins.findIndex((e) => {return e[1] == pin});
+    let pwmChannelSetupCode = 'ledcSetup(' + channel + ', 980, 8);';
+    Blockly.Arduino.addSetup('io_setup_pwm_channel' + channel, pwmChannelSetupCode, false);
+    let pinSetupCode = 'ledcAttachPin(' + pin + ', ' + channel + ');';
+    Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
+    pin = channel + '/*pin ' + pin + '*/'; //use channel for call
+  }else{
+    Blockly.Arduino.reservePin(
+      block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Analogue Write');
+      
+    let pinSetupCode = 'pinMode(' + pin + ', OUTPUT);';
+    Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
+  }
+
   var stateOutput = Blockly.Arduino.valueToCode(
       block, 'NUM', Blockly.Arduino.ORDER_ATOMIC) || '0';
-
-  Blockly.Arduino.reservePin(
-      block, pin, Blockly.Arduino.PinTypes.OUTPUT, 'Analogue Write');
-
-  var pinSetupCode = 'pinMode(' + pin + ', OUTPUT);';
-  Blockly.Arduino.addSetup('io_' + pin, pinSetupCode, false);
 
   // Warn if the input value is out of range
   if ((stateOutput < 0) || (stateOutput > 255)) {

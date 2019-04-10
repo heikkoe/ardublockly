@@ -167,6 +167,11 @@ Blockly.Msg.ARD_PULSE_READ_TIMEOUT = 'measure %1 pulse on pin #%2 (timeout after
 Blockly.Msg.ARD_PULSE_TIP = 'Measures the duration of a pulse on the selected pin.';
 /// IO blocks - pulseIn - Tooltip for pulseIn() block when it uses the optional argument for time-out.
 Blockly.Msg.ARD_PULSETIMEOUT_TIP = 'Measures the duration of a pulse on the selected pin, if it is within the time-out in microseconds.';
+Blockly.Msg.ARD_TOUCH_WARN = 'This board has no touch sensors';
+Blockly.Msg.ARD_TOUCH_READ_MSG = 'Read touch sensor';
+Blockly.Msg.ARD_TOUCH_READ_TIP = 'Read touch sensor of ESP32. Values get smaller if touched.';
+Blockly.Msg.ARD_TOUCH_WAS_TOUCHED_MSG = 'was touched?';
+Blockly.Msg.ARD_TOUCH_WAS_TOUCHED_TIP = 'Check if a touch sensor of the ESP32 was touched (since the last time this was checked).';
 Blockly.Msg.ARD_SETTONE = 'Set tone on pin #';
 Blockly.Msg.ARD_TONEFREQ = 'at frequency';
 Blockly.Msg.ARD_TONE_TIP = 'Sets tone on pin to specified frequency within range 31 - 65535';
