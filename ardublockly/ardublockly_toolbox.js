@@ -152,6 +152,8 @@ Ardublockly.TOOLBOX_XML =
 '        </shadow>' +
 '      </value>'+
 '    </block>' +
+'    <block type="touch_sensor_read"></block>' +
+'    <block type="touch_sensor_touch_detected"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +
@@ -176,7 +178,6 @@ Ardublockly.TOOLBOX_XML =
 '  <sep></sep>' +
 '  <category id="catAudio" name="Audio">' +
 '    <block type="io_tone">' +
-'      <field name="TONEPIN">0</field>' +
 '      <value name="FREQUENCY">' +
 '        <shadow type="math_number">' +
 '          <field name="NUM">220</field>' +
