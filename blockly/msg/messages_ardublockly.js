@@ -150,9 +150,10 @@ Blockly.Msg.ARD_TIME_INF = 'wait forever (end program)';
 Blockly.Msg.ARD_TIME_INF_TIP = 'Wait indefinitely, stopping the program.';
 Blockly.Msg.ARD_VAR_AS = 'as';
 Blockly.Msg.ARD_VAR_AS_TIP = 'Sets a value to a specific type';
-Blockly.Msg.ARD_WIFI_WIFI = 'Sets a value to a specific type';
-Blockly.Msg.ARD_WIFI_SSID = 'Sets a value to a specific type';
-Blockly.Msg.ARD_WIFI_PASSWORD = 'Sets a value to a specific type';
+Blockly.Msg.ARD_WIFI_WIFI = 'Connect to Wifi:';
+Blockly.Msg.ARD_WIFI_SSID = 'WLAN name';
+Blockly.Msg.ARD_WIFI_PASSWORD = 'WLAN password';
+Blockly.Msg.ARD_WIFI_TIP = 'Connect to your wifi';
 /// IO blocks - pulseIn - Block for function pulseIn(), it measure a pulse duration in a given pin.
 Blockly.Msg.ARD_PULSE_READ = 'measure %1 pulse on pin #%2';
 /// IO blocks - pulseIn - Block similar to ARD_PULSE_READ, but it adds a time-out in microseconds.
