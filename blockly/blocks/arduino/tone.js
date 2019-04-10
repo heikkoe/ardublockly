@@ -59,6 +59,19 @@ Blockly.Blocks['io_tone'] = {
   /** @return {!string} The type of input value for the block, an integer. */
   getBlockType: function() {
     return Blockly.Types.NUMBER;
+  },
+  /**
+   * Updates the content of the the pin related fields.
+   * @this Blockly.Block
+   */
+  updateFields: function() {
+    if(Blockly.Arduino.Boards.selected.compilerFlag == 'esp32:esp32:esp32'){
+      Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+        this, 'TONEPIN', 'pwmPins');
+    }else{
+      Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+          this, 'TONEPIN', 'digitalPins');
+    }
   }
 };
 
@@ -80,5 +93,18 @@ Blockly.Blocks['io_notone'] = {
     /** @return {!string} The type of input value for the block, an integer. */
   getBlockType: function() {
     return Blockly.Types.NUMBER;
+  },
+  /**
+   * Updates the content of the the pin related fields.
+   * @this Blockly.Block
+   */
+  updateFields: function() {
+    if(Blockly.Arduino.Boards.selected.compilerFlag == 'esp32:esp32:esp32'){
+      Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+        this, 'TONEPIN', 'pwmPins');
+    }else{
+      Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+          this, 'TONEPIN', 'digitalPins');
+    }
   }
 };
