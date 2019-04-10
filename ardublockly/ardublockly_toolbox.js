@@ -251,6 +251,14 @@ Ardublockly.TOOLBOX_XML =
 '    </block>' +
 '    <block type="neopixel_show"></block>' +
 '  </category>' +
+'  <category id="catSensors" name="Sensors">' +
+'    <block type="ds18b20_config">' +
+'    </block>' +
+'    <block type="ds18b20_measure">' +
+'    </block>' +
+'    <block type="ds18b20_get_temp">' +
+'    </block>' +
+'  </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +
 '    <block type="serial_setup"></block>' +
