@@ -59,12 +59,25 @@ Blockly.Arduino['ir_result'] = function(block) {
       block, pinKey, Blockly.Arduino.PinTypes.IR, 'IR Result');
 
   Blockly.Arduino.addInclude('irremote', '#include <IRremote.h>');
-  Blockly.Arduino.addDeclaration(irName, 'IRrecv ' + irName + '(' + pinKey + ');\ndecode_results results_' + pinKey + ';');
+  Blockly.Arduino.addDeclaration('irreceive', 'decode_results results;');
+  Blockly.Arduino.addDeclaration(irName, 'IRrecv ' + irName + '(' + pinKey + ');');
+
+  Blockly.Arduino.userFunctions_['irreceive'] =
+        'long getIR(IRrecv irrecv){\n' +
+        '  long value;\n' +
+        '  if (irrecv.decode(&results)) {\n' +
+        '    value = results.value;\n' +
+        '    irrecv.resume();\n' +
+        '  } else {\n' +
+        '    value = -1;\n' +
+        '  }\n' +
+        '  return value;\n' +
+        '}';
 
   var setupCode = irName + '.enableIRIn();';
   Blockly.Arduino.addSetup(irName, setupCode, true);
 
-  var code = 'results_' + pinKey + '.value; \n' + irName + '.resume()';
+  var code = 'getIR(' + irName + ')';
 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
