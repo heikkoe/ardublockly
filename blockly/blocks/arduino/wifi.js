@@ -38,9 +38,11 @@ Blockly.Blocks['wifi_connect'] = {
     this.setTooltip(Blockly.Msg.ARD_WIFI_TIP);
   },
   /**
-   * Updates the content of the the pin related fields.
+   * Updates code when board is changed
    * @this Blockly.Block
    */
   updateFields: function() {
+    // update code when board is changed
+    Blockly.Events.fire(new Blockly.Events.Move(this));
   }
 };
