@@ -82,7 +82,7 @@ Blockly.Arduino['servo_read'] = function(block) {
   
     setupCode =
         servoName + '.setPeriodHertz(50);\n  ' +
-        servoName + '.attach(' + pinKey + ', 1000, 2000);';
+        servoName + '.attach(' + pinKey + ', 500, 2500);';
   
     code = servoName + '.read()';
   }else{
