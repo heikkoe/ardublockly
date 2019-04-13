@@ -152,6 +152,8 @@ Ardublockly.TOOLBOX_XML =
 '        </shadow>' +
 '      </value>'+
 '    </block>' +
+'    <block type="touch_sensor_read"></block>' +
+'    <block type="touch_sensor_touch_detected"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +
@@ -217,6 +219,46 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '  </category>' +
+'  <category id="catLeds" name="LEDs">' +
+'    <block type="neopixel_settings">' +
+'      <value name="NEOPIXEL_COUNT">' +
+'        <block type="math_number">' +
+'          <field name="NUM">30</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="neopixel_set_led">' +
+'      <value name="NEOPIXEL_LED">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_RED">' +
+'        <block type="math_number">' +
+'          <field name="NUM">127</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_GREEN">' +
+'        <block type="math_number">' +
+'          <field name="NUM">127</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_BLUE">' +
+'        <block type="math_number">' +
+'          <field name="NUM">127</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="neopixel_show"></block>' +
+'  </category>' +
+'  <category id="catSensors" name="Sensors">' +
+'    <block type="ds18b20_config">' +
+'    </block>' +
+'    <block type="ds18b20_measure">' +
+'    </block>' +
+'    <block type="ds18b20_get_temp">' +
+'    </block>' +
+'  </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +
 '    <block type="serial_setup"></block>' +
@@ -229,6 +271,14 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="spi_setup"></block>' +
 '    <block type="spi_transfer"></block>' +
 '    <block type="spi_transfer_return"></block>' +
+'    <block type="wifi_connect">' +
+'      <value name="SSID">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="PASSWORD">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'    </block>' +
 '    <block type="ir_check"></block>' +
 '    <block type="ir_result"></block>' +
 '  </category>' +
