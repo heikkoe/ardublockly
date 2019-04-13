@@ -279,5 +279,7 @@ Ardublockly.TOOLBOX_XML =
 '        <block type="text"></block>' +
 '      </value>' +
 '    </block>' +
+'    <block type="ir_check"></block>' +
+'    <block type="ir_result"></block>' +
 '  </category>' +
 '</xml>';
