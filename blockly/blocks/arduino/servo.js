@@ -51,6 +51,8 @@ Blockly.Blocks['servo_write'] = {
   updateFields: function() {
     Blockly.Arduino.Boards.refreshBlockFieldDropdown(
         this, 'SERVO_PIN', 'digitalPins');
+    // update code when board is changed
+    Blockly.Events.fire(new Blockly.Events.Move(this));
   }
 };
 
@@ -80,5 +82,7 @@ Blockly.Blocks['servo_read'] = {
   updateFields: function() {
     Blockly.Arduino.Boards.refreshBlockFieldDropdown(
         this, 'SERVO_PIN', 'digitalPins');
+    // update code when board is changed
+    Blockly.Events.fire(new Blockly.Events.Move(this));
   }
 };
