@@ -79,6 +79,7 @@ Blockly.Msg.ARD_TONE_FREQ = 'frequency';
 Blockly.Msg.ARD_TONE_PIN_TIP = 'Generate audio tones on a pin';
 Blockly.Msg.ARD_NOTONE_PIN = 'No tone PIN#';
 Blockly.Msg.ARD_NOTONE_PIN_TIP = 'Stop generating a tone on a pin';
+Blockly.Msg.ARD_IR_CHECK_PIN = 'Pin';
 Blockly.Msg.ARD_IR_CHECK = 'got IR signal?';
 Blockly.Msg.ARD_IR_CHECK_TIP = 'chose the IR pin where you want a result from';
 Blockly.Msg.ARD_IR_RESULT = 'received IR signal from Pin';

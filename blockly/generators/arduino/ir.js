@@ -14,40 +14,30 @@ goog.provide('Blockly.Arduino.ir');
 goog.require('Blockly.Arduino');
 
 /**
- * Code generator to receive a IR signal from a pin (X).
- * Arduino code: #include <IRremote.h>
- *               IRrecv irrecv(X);
- *               decode_results results;
- *               setup { irrecv.enableIRIn(); }
- *               loop  { BOOL = irrecv.decode(&results) }
+ * Code generator to check if a IR signal got received at pin (X).
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
 Blockly.Arduino['ir_check'] = function(block) {
-  var pinKey = block.getFieldValue('IR_PIN');
-  var irName = 'myIRrecv_' + pinKey;
+  let pinKey = block.getFieldValue('IR_PIN');
+  let irName = 'myIRrecv_' + pinKey;
 
   Blockly.Arduino.reservePin(
-      block, pinKey, Blockly.Arduino.PinTypes.IR, 'IR Check');
+      block, pinKey, Blockly.Arduino.PinTypes.IR, 'IR Result');
 
   Blockly.Arduino.addInclude('irremote', '#include <IRremote.h>');
-  Blockly.Arduino.addDeclaration(irName, 'IRrecv ' + irName + '(' + pinKey + ');\ndecode_results results_' + pinKey + ';');
+  Blockly.Arduino.addDeclaration('decode_results' + irName, 'decode_results results_' + pinKey + ';');
+  Blockly.Arduino.addDeclaration('IRrecv_' + irName, 'IRrecv ' + irName + '(' + pinKey + ');');
 
-  var setupCode = irName + '.enableIRIn();';
+  let setupCode = irName + '.enableIRIn();';
   Blockly.Arduino.addSetup(irName, setupCode, true);
 
-  var code = irName + '.decode(&results_' + pinKey + ')';
-
+  let code = irName + '.decode(&results_' + pinKey + ')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 /**
- * Code generator to receive a IR signal from a pin (X).
- * Arduino code: #include <IRremote.h>
- *               IRrecv irrecv(X);
- *               decode_results results;
- *               setup { irrecv.enableIRIn(); }
- *               loop  { VALUE = results.value; irrecv.resume(); }
+ * Code generator to read a IR signal from a pin (X).
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {array} Completed code with order of operation.
  */
@@ -59,11 +49,11 @@ Blockly.Arduino['ir_result'] = function(block) {
       block, pinKey, Blockly.Arduino.PinTypes.IR, 'IR Result');
 
   Blockly.Arduino.addInclude('irremote', '#include <IRremote.h>');
-  Blockly.Arduino.addDeclaration('irreceive', 'decode_results results;');
-  Blockly.Arduino.addDeclaration(irName, 'IRrecv ' + irName + '(' + pinKey + ');');
+  Blockly.Arduino.addDeclaration('decode_results' + irName, 'decode_results results_' + pinKey + ';');
+  Blockly.Arduino.addDeclaration('IRrecv_' + irName, 'IRrecv ' + irName + '(' + pinKey + ');');
 
-  Blockly.Arduino.userFunctions_['irreceive'] =
-        'long getIR(IRrecv irrecv){\n' +
+  Blockly.Arduino.userFunctions_['irreceive, getIR'] =
+        'long getIR(IRrecv& irrecv, decode_results& results){\n' +
         '  long value;\n' +
         '  if (irrecv.decode(&results)) {\n' +
         '    value = results.value;\n' +
@@ -77,7 +67,7 @@ Blockly.Arduino['ir_result'] = function(block) {
   var setupCode = irName + '.enableIRIn();';
   Blockly.Arduino.addSetup(irName, setupCode, true);
 
-  var code = 'getIR(' + irName + ')';
+  var code = 'getIR(' + irName + ', results_' + pinKey + ')';
 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };

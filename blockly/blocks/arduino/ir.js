@@ -4,7 +4,7 @@
  */
 
 /**
- * @fileoverview Arduino blocks for the Servo library.
+ * @fileoverview Arduino blocks for the IR library.
  *     The Arduino IR functions can be found in
  *     https://www.arduinolibraries.info/libraries/i-rremote 
  */
@@ -21,13 +21,14 @@ Blockly.Blocks.ir.HUE = 120;
 
 Blockly.Blocks['ir_check'] = {
   /**
-   * Block for reading an angle value of a servo pin.
+   * Block to check if a IR signal got received at pin.
    * @this Blockly.Block
    */
   init: function() {
     this.setHelpUrl('https://www.arduinolibraries.info/libraries/i-rremote');
     this.setColour(Blockly.Blocks.ir.HUE);
     this.appendDummyInput()
+        .appendField(Blockly.Msg.ARD_IR_CHECK_PIN)
         .appendField(new Blockly.FieldDropdown(
           Blockly.Arduino.Boards.selected.digitalPins), 'IR_PIN')
         .appendField(Blockly.Msg.ARD_IR_CHECK);
@@ -50,7 +51,7 @@ Blockly.Blocks['ir_check'] = {
 
 Blockly.Blocks['ir_result'] = {
   /**
-   * Block for reading an angle value of a servo pin.
+   * Block to read a IR signal from a pin (X).
    * @this Blockly.Block
    */
   init: function() {
