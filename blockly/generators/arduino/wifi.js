@@ -34,7 +34,7 @@ Blockly.Arduino['wifi_connect'] = function(block) {
     Blockly.Arduino.addDeclaration('wifi_ssid', 'const char* ssid = ' + ssid + ';');
     Blockly.Arduino.addDeclaration('wifi_password', 'const char* password = ' + password + ';');
 
-    return 'connect();'
+    return 'connect();\n'
   }
-  return '';
+  return '/*The selected board does not support wifi (' + Blockly.Arduino.Boards.selected.name + ')*/\n';
 };
