@@ -258,6 +258,7 @@ Ardublockly.TOOLBOX_XML =
 '    </block>' +
 '    <block type="ds18b20_get_temp">' +
 '    </block>' +
+'    <block type="hall_read"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +
