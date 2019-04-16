@@ -28,17 +28,19 @@ Blockly.Blocks['thing_speak_send_field'] = {
     init: function() {
       this.setHelpUrl('https://github.com/mathworks/thingspeak-arduino');
       this.setColour(Blockly.Blocks.thingSpeak.HUE);
+      this.appendDummyInput()
+					.appendField(Blockly.Msg.ARD_THING_SPEAK_SEND); // Send value to ThingSpeak
       this.appendValueInput('THINGSPEAK_KEY')
-          .appendField('Key:') //
+          .appendField(Blockly.Msg.ARD_THING_SPEAK_KEY) // Key:
           .setCheck(Blockly.Types.TEXT.output);
       this.appendValueInput('THINGSPEAK_CHANNEL')
-          .appendField('Channel:') //
+          .appendField(Blockly.Msg.ARD_THING_SPEAK_CHANNEL) // Channel:
           .setCheck(Blockly.Types.NUMBER.checkList);
       this.appendValueInput('THINGSPEAK_FIELD')
-          .appendField('Field:') //
+          .appendField(Blockly.Msg.ARD_THING_SPEAK_FIELD) // Field:
           .setCheck(Blockly.Types.NUMBER.checkList);
       this.appendValueInput('THINGSPEAK_VALUE')
-          .appendField('Value:') //
+          .appendField(Blockly.Msg.ARD_THING_SPEAK_VALUE) // Value:
           .setCheck(Blockly.Types.NUMBER.checkList);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
