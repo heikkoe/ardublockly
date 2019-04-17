@@ -174,6 +174,8 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="time_millis"></block>' +
 '    <block type="time_micros"></block>' +
 '    <block type="infinite_loop"></block>' +
+'    <block type="time_set_via_wifi"></block>' +
+'    <block type="time_get_date_time"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catAudio" name="Audio">' +
