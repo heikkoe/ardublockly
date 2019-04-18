@@ -38,9 +38,11 @@ Blockly.Blocks['ifttt_webhooks_settings'] = {
         'WEBHOOK_NAME')
         .appendField(':'); // :
     this.appendValueInput('API_KEY')
+        .setAlign(Blockly.ALIGN_RIGHT)
         .appendField('API Key')
         .setCheck(Blockly.Types.TEXT.output);
     this.appendValueInput('NAME')
+        .setAlign(Blockly.ALIGN_RIGHT)
         .appendField('Webhook name')
         .setCheck(Blockly.Types.TEXT.output);
     this.setInputsInline(false);
@@ -51,11 +53,33 @@ Blockly.Blocks['ifttt_webhooks_settings'] = {
   },
 };
 
-
-
 Blockly.Blocks['ifttt_webhooks_trigger'] = {
+  /**
+   * Block for triggering a ifttt webhook
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl('https://github.com/romkey/IFTTTWebHook');
+    this.setColour(Blockly.Blocks.ifttt.HUE);
+    this.appendDummyInput()
+      .appendField('trigger')
+      .appendField(
+          new Blockly.FieldInstance(
+              'IFTTT',
+              'myIFTTTWebhook',
+              false, true, false
+          ),
+      'WEBHOOK_NAME');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Trigger a IFTTT webhook.\n'
+          + 'Make sure your device is connected to the internet.');
+  }
+};
+
+Blockly.Blocks['ifttt_webhooks_trigger_message'] = {
     /**
-     * Block for triggering a ifttt webhook
+     * Block for triggering a ifttt webhook with tree messages
      * @this Blockly.Block
      */
     init: function() {
@@ -70,6 +94,18 @@ Blockly.Blocks['ifttt_webhooks_trigger'] = {
                 false, true, false
             ),
         'WEBHOOK_NAME');
+      this.appendValueInput('MESSAGE_1')
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField('Message 1')
+          .setCheck(Blockly.Types.TEXT.output);
+      this.appendValueInput('MESSAGE_2')
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField('Message 2')
+          .setCheck(Blockly.Types.TEXT.output);
+      this.appendValueInput('MESSAGE_3')
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField('Message 3')
+          .setCheck(Blockly.Types.TEXT.output);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setTooltip('Trigger a IFTTT webhook.\n'

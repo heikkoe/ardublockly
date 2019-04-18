@@ -31,7 +31,7 @@ Blockly.Arduino['ifttt_webhooks_settings'] = function(block) {
       'IFTTTWebhook* ' + webhook_name + ';'
   );
 
-  var code = webhook_name + ' = new IFTTTWebhook(' + key + ', ' + name + ');';
+  let code = webhook_name + ' = new IFTTTWebhook(' + key + ', ' + name + ');';
 
   return code;
 };
@@ -42,8 +42,32 @@ Blockly.Arduino['ifttt_webhooks_settings'] = function(block) {
  * @return {string} Completed code.
  */
 Blockly.Arduino['ifttt_webhooks_trigger'] = function(block) {
-  var webhook_name = block.getFieldValue('WEBHOOK_NAME');
+  let webhook_name = block.getFieldValue('WEBHOOK_NAME');
 
-  var code = webhook_name + '->trigger();\n';
+  let code = webhook_name + '->trigger();\n';
+  return code;
+};
+
+/**
+ * Code generator for triggering a ifttt webhook with tree messages
+ * @param {!Blockly.Block} block Block to generate the code from.
+ * @return {string} Completed code.
+ */
+Blockly.Arduino['ifttt_webhooks_trigger_message'] = function(block) {
+  let webhook_name = block.getFieldValue('WEBHOOK_NAME');
+  let msg1 = Blockly.Arduino.valueToCode(block, 'MESSAGE_1', Blockly.Arduino.ORDER_ATOMIC) || '""';
+  let msg2 = Blockly.Arduino.valueToCode(block, 'MESSAGE_2', Blockly.Arduino.ORDER_ATOMIC) || '""';
+  let msg3 = Blockly.Arduino.valueToCode(block, 'MESSAGE_3', Blockly.Arduino.ORDER_ATOMIC) || '""';
+
+  console.log({msg1});
+  
+  msg1 = msg1 == '""' ? '""' : 'String(' + msg1 + ').c_str()';
+  msg2 = msg2 == '""' ? '""' : 'String(' + msg2 + ').c_str()';
+  msg3 = msg3 == '""' ? '""' : 'String(' + msg3 + ').c_str()';
+
+  let code = webhook_name + '->trigger('
+      + msg1 + ', '
+      + msg2 + ', '
+      + msg3 + ');\n';
   return code;
 };

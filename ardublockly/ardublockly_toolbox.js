@@ -290,6 +290,17 @@ Ardublockly.TOOLBOX_XML =
 '    </block>' +
 '    <block type="ifttt_webhooks_trigger"></block>' +
 '    <block type="ir_check"></block>' +
+'    <block type="ifttt_webhooks_trigger_message">' +
+'      <value name="MESSAGE_1">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="MESSAGE_2">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="MESSAGE_3">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'    </block>' +
 '    <block type="ir_result"></block>' +
 '  </category>' +
 '</xml>';
