@@ -81,6 +81,21 @@ Blockly.Msg.ARD_NOTONE_PIN = 'No tone PIN#';
 Blockly.Msg.ARD_NOTONE_PIN_TIP = 'Stop generating a tone on a pin';
 Blockly.Msg.ARD_HALL_TEXT = 'read magnet sensor';
 Blockly.Msg.ARD_HALL_TIP = 'reads the hall sensor of an ESP32';
+Blockly.Msg.ARD_IFTTT_SETUP = 'Setup IFTTT Webhook';
+Blockly.Msg.ARD_IFTTT_WEBHOOK_NAME = 'myIFTTTWebhook';
+Blockly.Msg.ARD_IFTTT_SETUP2 = ':';
+Blockly.Msg.ARD_IFTTT_KEY = 'API Key';
+Blockly.Msg.ARD_IFTTT_NAME = 'Webhook name';
+Blockly.Msg.ARD_IFTTT_SETUP_TIP = 'Create a IFTTT Webhook you can trigger later.'
+    + 'Make sure your device is connected to the internet.';
+Blockly.Msg.ARD_IFTTT_TRIGGER = 'trigger';
+Blockly.Msg.ARD_IFTTT_TRIGGER_TIP = 'Trigger a IFTTT webhook.'
+    + 'Make sure your device is connected to the internet.';
+Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_1 = 'Message 1';
+Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_2 = 'Message 2';
+Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_3 = 'Message 3';
+Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_TIP = 'Trigger a IFTTT webhook with up to tree messages.'
+    + 'Make sure your device is connected to the internet.';
 Blockly.Msg.ARD_IR_CHECK_PIN = 'Pin';
 Blockly.Msg.ARD_IR_CHECK = 'got IR signal?';
 Blockly.Msg.ARD_IR_CHECK_TIP = 'chose the IR pin where you want a result from';

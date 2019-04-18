@@ -28,28 +28,27 @@ Blockly.Blocks['ifttt_webhooks_settings'] = {
     this.setHelpUrl('https://github.com/romkey/IFTTTWebHook');
     this.setColour(Blockly.Blocks.ifttt.HUE);
     this.appendDummyInput()
-        .appendField('Setup IFTTT Webhook')
+        .appendField(Blockly.Msg.ARD_IFTTT_SETUP)
         .appendField(
             new Blockly.FieldInstance(
                 'IFTTT',
-                'myIFTTTWebhook',
+                Blockly.Msg.ARD_IFTTT_WEBHOOK_NAME,
                 true, true, false
             ),
         'WEBHOOK_NAME')
-        .appendField(':'); // :
+        .appendField(Blockly.Msg.ARD_IFTTT_SETUP2); // :
     this.appendValueInput('API_KEY')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('API Key')
+        .appendField(Blockly.Msg.ARD_IFTTT_KEY)
         .setCheck(Blockly.Types.TEXT.output);
     this.appendValueInput('NAME')
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField('Webhook name')
+        .appendField(Blockly.Msg.ARD_IFTTT_NAME)
         .setCheck(Blockly.Types.TEXT.output);
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setTooltip('Create a IFTTT Webhook you can trigger later.\n'
-            + 'Make sure your device is connected to the internet.');
+    this.setTooltip(Blockly.Msg.ARD_IFTTT_SETUP_TIP);
   },
 };
 
@@ -62,18 +61,17 @@ Blockly.Blocks['ifttt_webhooks_trigger'] = {
     this.setHelpUrl('https://github.com/romkey/IFTTTWebHook');
     this.setColour(Blockly.Blocks.ifttt.HUE);
     this.appendDummyInput()
-      .appendField('trigger')
+      .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER)
       .appendField(
           new Blockly.FieldInstance(
               'IFTTT',
-              'myIFTTTWebhook',
+              Blockly.Msg.ARD_IFTTT_WEBHOOK_NAME,
               false, true, false
           ),
       'WEBHOOK_NAME');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setTooltip('Trigger a IFTTT webhook.\n'
-          + 'Make sure your device is connected to the internet.');
+    this.setTooltip(Blockly.Msg.ARD_IFTTT_TRIGGER_TIP);
   }
 };
 
@@ -86,29 +84,28 @@ Blockly.Blocks['ifttt_webhooks_trigger_message'] = {
       this.setHelpUrl('https://github.com/romkey/IFTTTWebHook');
       this.setColour(Blockly.Blocks.ifttt.HUE);
       this.appendDummyInput()
-        .appendField('trigger')
+        .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER)
         .appendField(
             new Blockly.FieldInstance(
                 'IFTTT',
-                'myIFTTTWebhook',
+                Blockly.Msg.ARD_IFTTT_WEBHOOK_NAME,
                 false, true, false
             ),
         'WEBHOOK_NAME');
       this.appendValueInput('MESSAGE_1')
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField('Message 1')
+          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_1)
           .setCheck(Blockly.Types.TEXT.output);
       this.appendValueInput('MESSAGE_2')
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField('Message 2')
+          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_2)
           .setCheck(Blockly.Types.TEXT.output);
       this.appendValueInput('MESSAGE_3')
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField('Message 3')
+          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_3)
           .setCheck(Blockly.Types.TEXT.output);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setTooltip('Trigger a IFTTT webhook.\n'
-            + 'Make sure your device is connected to the internet.');
+      this.setTooltip(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_TIP);
     }
 };
