@@ -280,6 +280,20 @@ Ardublockly.TOOLBOX_XML =
 '        <block type="text"></block>' +
 '      </value>' +
 '    </block>' +
+'    <block type="thing_speak_send_field">' +
+'      <value name="THINGSPEAK_KEY">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="THINGSPEAK_CHANNEL">' +
+'        <block type="math_number"></block>' +
+'      </value>' +
+'      <value name="THINGSPEAK_FIELD">' +
+'        <block type="math_number"></block>' +
+'      </value>' +
+'      <value name="THINGSPEAK_VALUE">' +
+'        <block type="math_number"></block>' +
+'      </value>' +
+'    </block>' +
 '    <block type="ir_check"></block>' +
 '    <block type="ir_result"></block>' +
 '  </category>' +
