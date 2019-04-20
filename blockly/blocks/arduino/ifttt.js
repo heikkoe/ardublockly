@@ -94,16 +94,13 @@ Blockly.Blocks['ifttt_webhooks_trigger_message'] = {
         'WEBHOOK_NAME');
       this.appendValueInput('MESSAGE_1')
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_1)
-          .setCheck(Blockly.Types.TEXT.output);
+          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_1);
       this.appendValueInput('MESSAGE_2')
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_2)
-          .setCheck(Blockly.Types.TEXT.output);
+          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_2);
       this.appendValueInput('MESSAGE_3')
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_3)
-          .setCheck(Blockly.Types.TEXT.output);
+          .appendField(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_3);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setTooltip(Blockly.Msg.ARD_IFTTT_TRIGGER_MSG_TIP);
