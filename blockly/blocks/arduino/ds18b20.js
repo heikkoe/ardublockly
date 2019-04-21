@@ -97,7 +97,11 @@ Blockly.Blocks['ds18b20_get_temp'] = {
                                       Blockly.Msg.ARD_DS18B20_DEFAULT_NAME, // MyTempSensor
                                       false, true, false),
             'DS18B20_NAME');
-    this.setOutput(true, Blockly.Types.NUMBER.output); 
+    this.setOutput(true, Blockly.Types.DECIMAL.output); 
     this.setTooltip(Blockly.Msg.ARD_DS18B20_GET_TEMP_TIP); // Get the temperature value in °C of the last measurement
+  },
+  /** @return {string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.DECIMAL;
   }
 };
