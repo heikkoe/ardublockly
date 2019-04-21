@@ -30,14 +30,25 @@ Blockly.Blocks['base_map'] = {
     this.setHelpUrl('http://arduino.cc/en/Reference/map');
     this.setColour(Blockly.Blocks.map.HUE);
     this.appendValueInput('NUM')
+        .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(Blockly.Msg.ARD_MAP)
         .setCheck(Blockly.Types.NUMBER.checkList);
-    this.appendValueInput('DMAX')
-        .appendField(Blockly.Msg.ARD_MAP_VAL)
+    this.appendValueInput('IN_MIN')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField('from min')
         .setCheck(Blockly.Types.NUMBER.checkList);
-    this.appendDummyInput()
-        .appendField(']');
-    this.setInputsInline(true);
+    this.appendValueInput('IN_MAX')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField('max')
+        .setCheck(Blockly.Types.NUMBER.checkList);
+    this.appendValueInput('OUT_MIN')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField('to min')
+        .setCheck(Blockly.Types.NUMBER.checkList);
+    this.appendValueInput('OUT_MAX')
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField('max')
+        .setCheck(Blockly.Types.NUMBER.checkList);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.ARD_MAP_TIP);
   },
