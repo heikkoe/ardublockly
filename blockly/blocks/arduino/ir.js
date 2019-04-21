@@ -61,12 +61,12 @@ Blockly.Blocks['ir_result'] = {
         .appendField(Blockly.Msg.ARD_IR_RESULT)
         .appendField(new Blockly.FieldDropdown(
             Blockly.Arduino.Boards.selected.digitalPins), 'IR_PIN');
-    this.setOutput(true, Blockly.Types.NUMBER.output);
+    this.setOutput(true, Blockly.Types.LARGE_NUMBER.output);
     this.setTooltip(Blockly.Msg.ARD_IR_RESULT_TIP);
   },
   /** @return {string} The type of return value for the block, an integer. */
   getBlockType: function() {
-    return Blockly.Types.NUMBER;
+    return Blockly.Types.LARGE_NUMBER;
   },
   /**
    * Updates the content of the the pin related fields.
