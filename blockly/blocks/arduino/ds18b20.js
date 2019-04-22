@@ -20,7 +20,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.ds18b20.HUE = 30;
+Blockly.Blocks.ds18b20.HUE = 300;
 
 Blockly.Blocks['ds18b20_config'] = {
   /**

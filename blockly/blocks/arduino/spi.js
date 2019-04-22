@@ -17,7 +17,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.spi.HUE = 170;
+Blockly.Blocks.spi.HUE = 325;
 
 Blockly.Blocks['spi_setup'] = {
   /**

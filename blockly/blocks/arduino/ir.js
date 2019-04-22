@@ -17,7 +17,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.ir.HUE = 120;
+Blockly.Blocks.ir.HUE = 300;
 
 Blockly.Blocks['ir_check'] = {
   /**
