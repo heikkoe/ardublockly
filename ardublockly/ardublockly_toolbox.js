@@ -143,38 +143,16 @@ Ardublockly.TOOLBOX_XML =
 '  <sep></sep>' +
 '  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>' +
 '  <sep></sep>' +
-'  <category id="catInputOutput" name="Input/Output">' +
+'  <category id="catInputOutput" name="Pins">' +
 '    <block type="io_digitalwrite">' +
 '      <value name="STATE">' +
 '        <block type="io_highlow"></block>' +
 '      </value>' +
 '    </block>' +
 '    <block type="io_digitalread"></block>' +
-'    <block type="io_builtin_led">' +
-'      <value name="STATE">' +
-'        <block type="io_highlow"></block>' +
-'      </value>' +
-'    </block>' +
 '    <block type="io_analogwrite"></block>' +
 '    <block type="io_analogread"></block>' +
 '    <block type="io_highlow"></block>' +
-'    <block type="io_pulsein">' +
-'      <value name="PULSETYPE">' +
-'        <shadow type="io_highlow"></shadow>' +
-'      </value>' +
-'    </block>' +
-'    <block type="io_pulsetimeout">' +
-'      <value name="PULSETYPE">' +
-'        <shadow type="io_highlow"></shadow>' +
-'      </value>' +
-'      <value name="TIMEOUT">' +
-'        <shadow type="math_number">' +
-'          <field name="NUM">100</field>' +
-'        </shadow>' +
-'      </value>'+
-'    </block>' +
-'    <block type="touch_sensor_read"></block>' +
-'    <block type="touch_sensor_touch_detected"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +
@@ -195,6 +173,21 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="time_millis"></block>' +
 '    <block type="time_micros"></block>' +
 '    <block type="infinite_loop"></block>' +
+'    <block type="io_pulsein">' +
+'      <value name="PULSETYPE">' +
+'        <shadow type="io_highlow"></shadow>' +
+'      </value>' +
+'    </block>' +
+'    <block type="io_pulsetimeout">' +
+'      <value name="PULSETYPE">' +
+'        <shadow type="io_highlow"></shadow>' +
+'      </value>' +
+'      <value name="TIMEOUT">' +
+'        <shadow type="math_number">' +
+'          <field name="NUM">100</field>' +
+'        </shadow>' +
+'      </value>'+
+'    </block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catAudio" name="Audio">' +
@@ -240,7 +233,12 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '  </category>' +
-'  <category id="catLeds" name="LEDs">' +
+'  <category id="catLeds" name="Light">' +
+'    <block type="io_builtin_led">' +
+'      <value name="STATE">' +
+'        <block type="io_highlow"></block>' +
+'      </value>' +
+'    </block>' +
 '    <block type="neopixel_settings">' +
 '      <value name="NEOPIXEL_COUNT">' +
 '        <block type="math_number">' +
@@ -273,6 +271,8 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="neopixel_show"></block>' +
 '  </category>' +
 '  <category id="catSensors" name="Sensors">' +
+'    <block type="touch_sensor_read"></block>' +
+'    <block type="touch_sensor_touch_detected"></block>' +
 '    <block type="ds18b20_config">' +
 '    </block>' +
 '    <block type="ds18b20_measure">' +
@@ -282,7 +282,7 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="hall_read"></block>' +
 '  </category>' +
 '  <sep></sep>' +
-'  <category id="catComms" name="Comms">' +
+'  <category id="catComms" name="Communication">' +
 '    <block type="serial_setup"></block>' +
 '    <block type="serial_print"></block>' +
 '    <block type="text_prompt_ext">' +
