@@ -55,15 +55,13 @@ Blockly.Arduino['ifttt_webhooks_trigger'] = function(block) {
  */
 Blockly.Arduino['ifttt_webhooks_trigger_message'] = function(block) {
   let webhook_name = block.getFieldValue('WEBHOOK_NAME');
-  let msg1 = Blockly.Arduino.valueToCode(block, 'MESSAGE_1', Blockly.Arduino.ORDER_ATOMIC) || '""';
-  let msg2 = Blockly.Arduino.valueToCode(block, 'MESSAGE_2', Blockly.Arduino.ORDER_ATOMIC) || '""';
-  let msg3 = Blockly.Arduino.valueToCode(block, 'MESSAGE_3', Blockly.Arduino.ORDER_ATOMIC) || '""';
-
-  console.log({msg1});
+  let msg1 = Blockly.Arduino.valueToCode(block, 'MESSAGE_1', Blockly.Arduino.ORDER_ATOMIC) || 'NULL';
+  let msg2 = Blockly.Arduino.valueToCode(block, 'MESSAGE_2', Blockly.Arduino.ORDER_ATOMIC) || 'NULL';
+  let msg3 = Blockly.Arduino.valueToCode(block, 'MESSAGE_3', Blockly.Arduino.ORDER_ATOMIC) || 'NULL';
   
-  msg1 = msg1 == '""' ? '""' : 'String(' + msg1 + ').c_str()';
-  msg2 = msg2 == '""' ? '""' : 'String(' + msg2 + ').c_str()';
-  msg3 = msg3 == '""' ? '""' : 'String(' + msg3 + ').c_str()';
+  msg1 = msg1 == 'NULL' ? 'NULL' : 'String(' + msg1 + ').c_str()';
+  msg2 = msg2 == 'NULL' ? 'NULL' : 'String(' + msg2 + ').c_str()';
+  msg3 = msg3 == 'NULL' ? 'NULL' : 'String(' + msg3 + ').c_str()';
 
   let code = webhook_name + '->trigger('
       + msg1 + ', '
