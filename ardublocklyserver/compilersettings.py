@@ -599,7 +599,7 @@ class ServerCompilerSettings(object):
             settings_dict['arduino_exec_path'] =\
                 settings_parser.get('Arduino_IDE', 'arduino_exec_path')
             settings_dict['arduino_board'] =\
-                settings_parser.get('Arduino_IDE', 'arduino_board')
+                'Uno'
             settings_dict['arduino_serial_port'] =\
                 settings_parser.get('Arduino_IDE', 'arduino_serial_port')
             settings_dict['sketch_name'] =\
