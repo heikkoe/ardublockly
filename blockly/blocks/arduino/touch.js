@@ -15,7 +15,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.touchSensor.HUE = 20;
+Blockly.Blocks.touchSensor.HUE = 300;
 
 Blockly.Blocks['touch_sensor_read'] = {
 /**

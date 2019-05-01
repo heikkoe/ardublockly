@@ -17,7 +17,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.spi.HUE = 170;
+Blockly.Blocks.spi.HUE = 325;
 
 Blockly.Blocks['spi_setup'] = {
   /**
@@ -54,6 +54,8 @@ Blockly.Blocks['spi_setup'] = {
                  [Blockly.Msg.ARD_SPI_SETUP_MODE2, 'SPI_MODE2'],
                  [Blockly.Msg.ARD_SPI_SETUP_MODE3, 'SPI_MODE3']]),
             'SPI_MODE');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
     this.setTooltip(Blockly.Msg.ARD_SPI_SETUP_TIP);
   },
   /**

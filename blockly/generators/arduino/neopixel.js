@@ -45,15 +45,11 @@ Blockly.Arduino['neopixel_settings'] = function(block) {
 };
 
 /**
- * Code generator to set an angle (Y) value to a servo pin (X).
- * Arduino code: #include <Servo.h>
- *               Servo myServoX;
- *               setup { myServoX.attach(X); }
- *               loop  { myServoX.write(Y);  }
+ * Code generator for setting the color of a rgb led using RGB
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
-Blockly.Arduino['neopixel_set_led'] = function(block) {
+Blockly.Arduino['neopixel_set_rgb'] = function(block) {
   var stripName = block.getFieldValue('WS2812_NAME');
   var ledIdx = Blockly.Arduino.valueToCode(block, 'NEOPIXEL_LED', Blockly.Arduino.ORDER_ATOMIC) || '0';
   var red = Blockly.Arduino.valueToCode(block, 'NEOPIXEL_RED', Blockly.Arduino.ORDER_ATOMIC) || '0';
@@ -65,11 +61,23 @@ Blockly.Arduino['neopixel_set_led'] = function(block) {
 };
 
 /**
- * Code generator to set an angle (Y) value to a servo pin (X).
- * Arduino code: #include <Servo.h>
- *               Servo myServoX;
- *               setup { myServoX.attach(X); }
- *               loop  { myServoX.write(Y);  }
+ * Code generator for setting the color of a rgb led using HSV
+ * @param {!Blockly.Block} block Block to generate the code from.
+ * @return {string} Completed code.
+ */
+Blockly.Arduino['neopixel_set_hsv'] = function(block) {
+  var stripName = block.getFieldValue('WS2812_NAME');
+  var ledIdx = Blockly.Arduino.valueToCode(block, 'NEOPIXEL_LED', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var hue = Blockly.Arduino.valueToCode(block, 'NEOPIXEL_HUE', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var sat = Blockly.Arduino.valueToCode(block, 'NEOPIXEL_SAT', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var val = Blockly.Arduino.valueToCode(block, 'NEOPIXEL_VAL', Blockly.Arduino.ORDER_ATOMIC) || '0';
+
+  var code = stripName + '.setPixelColor(' + ledIdx + ', ' + stripName + '.ColorHSV(' + hue + ', ' + sat + ', ' + val + '));\n';
+  return code;
+};
+
+/**
+ * Code generator  for showing the set colors on the strip
  * @param {!Blockly.Block} block Block to generate the code from.
  * @return {string} Completed code.
  */
