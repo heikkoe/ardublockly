@@ -62,11 +62,9 @@ Blockly.Blocks['neopixel_settings'] = {
   }
 };
 
-
-
-Blockly.Blocks['neopixel_set_led'] = {
+Blockly.Blocks['neopixel_set_rgb'] = {
     /**
-     * Block for setting the color of a rgb led
+     * Block for setting the color of a rgb led using RGB
      * @this Blockly.Block
      */
     init: function() {
@@ -99,9 +97,44 @@ Blockly.Blocks['neopixel_set_led'] = {
     }
 };
 
+Blockly.Blocks['neopixel_set_hsv'] = {
+    /**
+     * Block for setting the color of a rgb led using HSV
+     * @this Blockly.Block
+     */
+    init: function() {
+      this.setHelpUrl('https://learn.adafruit.com/adafruit-neopixel-uberguide/the-magic-of-neopixels');
+      this.setColour(Blockly.Blocks.neopixel.HUE);
+      this.appendDummyInput()
+        .appendField(Blockly.Msg.ARD_NEOPIXEL_5) // Set RGB LED
+        .appendField(
+            new Blockly.FieldInstance(
+                'WS2812',
+                Blockly.Msg.ARD_NEOPIXEL_1, // myLedStrip
+                false, true, false
+            ),
+        'WS2812_NAME')
+      this.appendValueInput('NEOPIXEL_LED')
+          .appendField(Blockly.Msg.ARD_NEOPIXEL_6) // LED:
+          .setCheck(Blockly.Types.NUMBER.checkList);
+      this.appendValueInput('NEOPIXEL_HUE')
+          .appendField(Blockly.Msg.ARD_NEOPIXEL_11) // Hue:
+          .setCheck(Blockly.Types.NUMBER.checkList);
+      this.appendValueInput('NEOPIXEL_SAT')
+          .appendField(Blockly.Msg.ARD_NEOPIXEL_12) // Saturation:
+          .setCheck(Blockly.Types.NUMBER.checkList);
+      this.appendValueInput('NEOPIXEL_VAL')
+          .appendField(Blockly.Msg.ARD_NEOPIXEL_13) // Value:
+          .setCheck(Blockly.Types.NUMBER.checkList);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setTooltip(Blockly.Msg.ARD_NEOPIXEL_TIP);
+    }
+};
+
 Blockly.Blocks['neopixel_show'] = {
     /**
-     * Block for setting the color of a rgb led
+     * Block for showing the set colors on the strip
      * @this Blockly.Block
      */
     init: function() {

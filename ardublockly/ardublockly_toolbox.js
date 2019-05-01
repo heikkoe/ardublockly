@@ -246,7 +246,7 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
-'    <block type="neopixel_set_led">' +
+'    <block type="neopixel_set_rgb">' +
 '      <value name="NEOPIXEL_LED">' +
 '        <block type="math_number">' +
 '          <field name="NUM">0</field>' +
@@ -265,6 +265,28 @@ Ardublockly.TOOLBOX_XML =
 '      <value name="NEOPIXEL_BLUE">' +
 '        <block type="math_number">' +
 '          <field name="NUM">127</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="neopixel_set_hsv">' +
+'      <value name="NEOPIXEL_LED">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_HUE">' +
+'        <block type="math_number">' +
+'          <field name="NUM">65535</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_SAT">' +
+'        <block type="math_number">' +
+'          <field name="NUM">255</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="NEOPIXEL_VAL">' +
+'        <block type="math_number">' +
+'          <field name="NUM">255</field>' +
 '        </block>' +
 '      </value>' +
 '    </block>' +
