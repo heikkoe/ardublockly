@@ -16,9 +16,11 @@ goog.provide('Blockly.Blocks.io');
 
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
+goog.require('Blockly.Blocks');
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.io.HUE = 250;
+Blockly.Blocks.io.HUE = 200;
+Blockly.Blocks.io.LIGHT_HUE = 275;
 
 Blockly.Blocks['io_digitalwrite'] = {
   /**
@@ -85,7 +87,7 @@ Blockly.Blocks['io_builtin_led'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/DigitalWrite');
-    this.setColour(Blockly.Blocks.io.HUE);
+    this.setColour(Blockly.Blocks.io.LIGHT_HUE);
     this.appendValueInput('STATE')
         .appendField(Blockly.Msg.ARD_BUILTIN_LED)
         .appendField(new Blockly.FieldDropdown(
@@ -213,7 +215,7 @@ Blockly.Blocks['io_pulsein'] = {
       ],
       "output": Blockly.Types.NUMBER.output,
       "inputsInline": true,
-      "colour": Blockly.Blocks.io.HUE,
+      "colour": Blockly.Blocks.time.HUE,
       "tooltip": Blockly.Msg.ARD_PULSE_TIP,
       "helpUrl": 'https://www.arduino.cc/en/Reference/PulseIn'
     });
@@ -250,7 +252,7 @@ Blockly.Blocks['io_pulsetimeout'] = {
       ],
       "output": Blockly.Types.NUMBER.output,
       "inputsInline": true,
-      "colour": Blockly.Blocks.io.HUE,
+      "colour": Blockly.Blocks.time.HUE,
       "tooltip": Blockly.Msg.ARD_PULSETIMEOUT_TIP,
       "helpUrl": 'https://www.arduino.cc/en/Reference/PulseIn'
     });

@@ -33,7 +33,8 @@ goog.require('Blockly.Types');
 /**
  * Common HSV hue for all blocks in this category.
  */
-Blockly.Blocks.texts.HUE = 160;
+Blockly.Blocks.texts.HUE = 125;
+Blockly.Blocks.texts.COM_HUE = 325;
 
 Blockly.Blocks['text'] = {
   /**
@@ -620,7 +621,7 @@ Blockly.Blocks['text_prompt_ext'] = {
         [[Blockly.Msg.TEXT_PROMPT_TYPE_TEXT, Blockly.Types.TEXT.output],
          [Blockly.Msg.TEXT_PROMPT_TYPE_NUMBER, Blockly.Types.NUMBER.output]];
     this.setHelpUrl(Blockly.Msg.TEXT_PROMPT_HELPURL);
-    this.setColour(Blockly.Blocks.texts.HUE);
+    this.setColour(Blockly.Blocks.texts.COM_HUE);
     // Assign 'this' to a variable for use in the closures below.
     var thisBlock = this;
     var dropdown = new Blockly.FieldDropdown(TYPES, function(newOp) {

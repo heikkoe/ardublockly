@@ -17,7 +17,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.ifttt.HUE = 40;
+Blockly.Blocks.ifttt.HUE = 325;
 
 Blockly.Blocks['ifttt_webhooks_settings'] = {
   /**

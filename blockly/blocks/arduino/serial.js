@@ -20,7 +20,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.serial.HUE = 160;
+Blockly.Blocks.serial.HUE = 325;
 
 Blockly.Blocks['serial_setup'] = {
   /**
@@ -41,6 +41,8 @@ Blockly.Blocks['serial_setup'] = {
                 Blockly.Arduino.Boards.selected.serialSpeed), 'SPEED')
         .appendField(Blockly.Msg.ARD_SERIAL_BPS);
     this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
     this.setTooltip(Blockly.Msg.ARD_SERIAL_SETUP_TIP);
   },
   /**
@@ -99,7 +101,7 @@ Blockly.Blocks['serial_print'] = {
     // Get the Serial instance from this block
     var thisInstanceName = this.getFieldValue('SERIAL_ID');
     // Iterate through top level blocks to find setup instance for the serial id
-    var blocks = Blockly.mainWorkspace.getTopBlocks();
+    var blocks = Blockly.mainWorkspace.getAllBlocks();
     var setupInstancePresent = false;
     for (var x = 0; x < blocks.length; x++) {
       var func = blocks[x].getSerialSetupInstance;
