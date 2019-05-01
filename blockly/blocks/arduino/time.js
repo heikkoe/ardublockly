@@ -115,3 +115,48 @@ Blockly.Blocks['infinite_loop'] = {
     this.setTooltip(Blockly.Msg.ARD_TIME_INF_TIP);
   }
 };
+
+Blockly.Blocks['time_set_via_wifi'] = {
+  /**
+   * Sets the system time using time servers. Uses Wifi of the ESP32.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl('');
+    this.setColour(Blockly.Blocks.time.HUE);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.ARD_TIME_WIFI_SET);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip(Blockly.Msg.ARD_TIME_WIFI_SET_TIP);
+  }
+};
+
+Blockly.Blocks['time_get_date_time'] = {
+  /**
+   * Returns the current year, month, day of month, hour, minute or second.
+   * Can be set by the "Set time via wifi" block.
+   * @this Blockly.Block
+   */
+  init: function() {
+    let dropdownOptions =
+        [[Blockly.Msg.ARD_TIME_DROPDOWN_YEAR, 'YEAR'],
+        [Blockly.Msg.ARD_TIME_DROPDOWN_MONTH, 'MONTH'],
+        [Blockly.Msg.ARD_TIME_DROPDOWN_DAY_OF_MONTH, 'DAY_OF_MONTH'],
+        [Blockly.Msg.ARD_TIME_DROPDOWN_HOUR, 'HOUR'],
+        [Blockly.Msg.ARD_TIME_DROPDOWN_MIN, 'MINUTE'],
+        [Blockly.Msg.ARD_TIME_DROPDOWN_SEC, 'SECOND']];
+    let dropdown = new Blockly.FieldDropdown(dropdownOptions, function(option) {
+    });
+
+    this.setHelpUrl('');
+    this.setColour(Blockly.Blocks.time.HUE);
+    this.appendDummyInput()
+        .appendField('get the current')
+        .appendField(dropdown, 'VALUE');
+    this.setInputsInline(true);
+    this.setOutput(true, Blockly.Types.NUMBER.output);
+    this.setTooltip(Blockly.Msg.ARD_TIME_GET_CURRENT_TIP);
+  }
+};

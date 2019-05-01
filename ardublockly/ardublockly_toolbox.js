@@ -176,6 +176,8 @@ Ardublockly.TOOLBOX_XML =
 '        </shadow>' +
 '      </value>'+
 '    </block>' +
+'    <block type="time_set_via_wifi"></block>' +
+'    <block type="time_get_date_time"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catInputOutput" name="Pins" colour="200">' +
