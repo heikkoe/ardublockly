@@ -15,7 +15,7 @@ goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.wifi.HUE = 250;
+Blockly.Blocks.wifi.HUE = 325;
 
 Blockly.Blocks['wifi_connect'] = {
   /**

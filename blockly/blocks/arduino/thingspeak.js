@@ -18,7 +18,7 @@ goog.require('Blockly.Types');
 
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.thingSpeak.HUE = 40;
+Blockly.Blocks.thingSpeak.HUE = 325;
 
 Blockly.Blocks['thing_speak_send_field'] = {
     /**
