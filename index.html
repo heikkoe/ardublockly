@@ -1,405 +1,298 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <title>Ardublockly - Embedded Log</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00878F">
+  <link rel="icon" href="ardublockly/img/favicon.ico">
+  <title class="translatable_title">Ardublockly</title>
 
+  <!-- Materialize, Prettify, and Ardublockly CSS -->
+  <link rel="stylesheet" href="ardublockly/materialize/materialize.css" media="screen,projection">
+  <link rel="stylesheet" href="ardublockly/prettify/arduino.css">
+  <link rel="stylesheet" href="ardublockly/ardublockly.css" media="screen,projection">
 
+  <!-- Ardublockly - These three files contain the compress version -->
+  <script src="blockly/blockly_compressed.js"></script>
+  <script src="blockly/blocks_compressed.js"></script>
+  <script src="blockly/arduino_compressed.js"></script>
+  <!-- To use the uncompressed version comment out the above and comment in the ones below -->
 
-<link rel="canonical" href="//www.embeddedlog.com/ardublockly/index.html">
-
-        <meta name="author" content="carlosperate" />
-        <meta name="description" content="Ardublockly is a visual programming editor for Arduino. It is based on Google&#39;s Blockly, which has been forked to generate Arduino code. The &#34;ArdublocklyServer&#34; Python package initialises a local server to be able to compile and load the Arduino code using the Arduino IDE. This is all packaged in ..." />
-
-    <meta property="og:site_name" content="Embedded Log" />
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Ardublockly"/>
-    <meta property="og:url" content="https://ardublockly.embeddedlog.com"/>
-    <meta property="og:description" content="Ardublockly is a visual programming editor for Arduino. It is based on Google&#39;s Blockly, which has been forked to generate Arduino code. The &#34;ArdublocklyServer&#34; Python package initialises a local server to be able to compile and load the Arduino code using the Arduino IDE. This is all packaged in ..." />
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="//www.embeddedlog.com/theme/css/bootstrap.flatly.min.css" type="text/css"/>
-    <link href="//www.embeddedlog.com/theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="//www.embeddedlog.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="//www.embeddedlog.com/theme/css/style.css" type="text/css"/>
-        <link href="//www.embeddedlog.com/theme/css/shariff/shariff.min.css" rel="stylesheet">
-
-
-
-
-
+  <!-- Default language js files, user selection appended to head on load -->
+  <script src="blockly/msg/js/en.js"></script>
+  <script src="ardublockly/msg/en.js"></script>
 </head>
+
 <body>
-
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="//www.embeddedlog.com/" class="navbar-brand">
-Embedded Log            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="active"><a href="//www.embeddedlog.com/ardublockly/index.html">
-                             Ardublockly
-                            </a></li>
-                            <li><a href="//www.embeddedlog.com/LightUpPi-Alarm/index.html">
-                             LightUp Alarm
-                            </a></li>
-                            <li><a href="//www.embeddedlog.com/PebbleQuickHue/index.html">
-                             QuickHue for Pebble
-                            </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="//www.embeddedlog.com/category/blog.html">Blog</a></li>
-                    <li><a href="//www.embeddedlog.com/about/index.html">About</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="//www.embeddedlog.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+  <!-- Horizontal Navigation bar -->
+  <nav class="nav-fixed arduino_teal">
+    <div class="nav-wrapper container">
+      <a class="show-on-large button-collapse" href="#" data-activates="slide-out" id="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <a id="logo-container" class="brand-logo">
+        <span class="app_title translatable_title">Ardublockly:</span>
+        <!-- Sketch name editable text field -->
+        <span class="sketch_name_wrapper">
+          <i class="mdi-image-edit sketch_name_icon"></i>
+          <input id="sketch_name" class="sketch_name" type="text">
+        </span>
+      </a>
+      <!-- Horizontal Navbar links only shown on large resolutions -->
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#" id="button_load"><span class="translatable_open">Open</span><i class="mdi-file-file-upload left"></i></a></li>
+        <li><a href="#" id="button_save"><span class="translatable_save">Save</span><i class="mdi-file-file-download left"></i></a></li>
+        <li><a href="#" id="button_delete"><span class="translatable_deleteAll">Delete All</span><i class="mdi-action-delete left"></i></a></li>
+      </ul>
     </div>
-</div> <!-- /.navbar -->
-<!-- Banner -->
-<style>
-    #banner{
-        background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0)
-        ),
-        url("//www.embeddedlog.com/images/banner.jpg");
-    }
-    .carousel-one{
-        background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0)
-        ),
-        url("//www.embeddedlog.com/images/banners/ardublockly_banner.png");
-    }
-    .carousel-two{
-        background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0)
-        ),
-        url("//www.embeddedlog.com/images/banners/default_banner.jpg");
-    }
-    .carousel-three{
-        background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0)
-        ),
-        url("//www.embeddedlog.com/images/banners/quickhue_banner.png");
-    }
-</style>
+  </nav>
 
-<div id="banner">
-    <div id="carousel-projects" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators" id="carousel-indicators">
-            <li data-target="#carousel-projects" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-projects" data-slide-to="1"></li>
-            <li data-target="#carousel-projects" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active carousel-base carousel-one">
-                <div class="carousel-content">
-                    <div class="table_div">
-                        <div class="table_row_text">
-                            <a href="//www.embeddedlog.com/ardublockly/index.html"><h2>Ardublockly</h2>
-                            Visual Programming for Arduino</a>
-                        </div>
-                        <div class="table_row_buttons">
-                            <a class="btn btn-primary" href="https://github.com/carlosperate/ardublockly/releases" target="_blank"><span class="fa fa-windows"></span>Download for Windows</a>
-                            <a class="btn btn-primary" href="https://github.com/carlosperate/ardublockly" target="_blank"><span class="fa fa-github"></span>View on GitHub</a>
-                            <a class="btn btn-primary" href="https://github.com/carlosperate/ardublockly/archive/master.zip"><span class="fa fa-file-zip-o"></span>Download Source code</a>
-                        </div>
-                        <div class="table_row_text carousel-indicators-placeholder">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item carousel-base carousel-two">
-                <div class="carousel-content">
-                    <div class="table_div">
-                        <div class="table_row_text">
-                            <a href="//www.embeddedlog.com/LightUpPi-Alarm/index.html"><h2>LightUp Alarm</h2>
-                            Raspberry Pi Alarm Clock with sunrise light, coffee machine control, physical snooze button, and Android companion app</a>
-                        </div>
-                        <div class="table_row_buttons">
-                            <a class="btn btn-primary" href="https://github.com/carlosperate/LightUpPi-Alarm/archive/master.zip"><span class="fa fa-linux"></span>Raspberry Pi Software</a>
-                            <a class="btn btn-primary" href="https://github.com/carlosperate/LightUpDroid-Alarm/releases" target="_blank"><span class="fa fa-android"></span>Android App</a>
-                            <a class="btn btn-primary" href="https://github.com/carlosperate/LightUpPi-Alarm" target="_blank"><span class="fa fa-github"></span>View on GitHub</a>
-                        </div>
-                        <div class="table_row_text carousel-indicators-placeholder">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item carousel-base carousel-three">
-                <div class="carousel-content">
-                    <div class="table_div">
-                        <div class="table_row_text">
-                            <a href="//www.embeddedlog.com/PebbleQuickHue/index.html"><h2>QuickHue for Pebble</h2>
-                            Hue Lights control from a Pebble smarthphone</a>
-                        </div>
-                        <div class="table_row_buttons">
-                            <a class="btn btn-primary" href="https://github.com/carlosperate/PebbleQuickHue/raw/master/bin/QuickHue.pbw"><span class="fa fa-clock-o"></span>Download for Pebble</a>
-                            <a class="btn btn-primary" href="https://github.com/carlosperate/PebbleQuickHue" target="_blank"><span class="fa fa-github"></span>View on GitHub</a>
-                            <a  class="btn btn-primary" href="https://github.com/carlosperate/PebbleQuickHue/archive/master.zip"><span class="fa fa-file-zip-o"></span>Download Source code</a>
-                        </div>
-                        <div class="table_row_text carousel-indicators-placeholder">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-projects" role="button" data-slide="prev" id="carousel-control-prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-projects" role="button" data-slide="next" id="carousel-control-next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div><!-- End Banner -->
-<div class="container container_body">
-    <div class="row">
-        <div class="col-sm-9">
-    <ol class="breadcrumb">
-        <li><a href="//www.embeddedlog.com" title="Embedded Log"><i class="fa fa-home fa-lg"></i></a></li>
-        <li class="active">Ardublockly</li>
-    </ol>
-
-    <section id="content" class="body">
-        <header class="page-header">
-        <h1 class="entry-title">Ardublockly</h1>
-            
-        </header>
-        <div class="entry-content">
-            <p>Ardublockly is a visual programming editor for Arduino. It is based on Google's <a href="https://developers.google.com/blockly/">Blockly</a>, which has been forked to generate <a href="http://www.arduino.cc/">Arduino</a> code.</p>
-<p>The "ArdublocklyServer" Python package initialises a local server to be able to compile and load the Arduino code using the <a href="http://arduino.cc/en/main/software/">Arduino IDE</a>.</p>
-<p>This is all packaged in a self contained executable:</p>
-<p><img alt="Ardublockly desktop program screenshot" src="//ardublockly.embeddedlog.com/images/screenshot_desktop_1.png" /></p>
-<h2>Features</h2>
-<ul>
-<li>Generate Arduino code with visual drag-and-drop blocks</li>
-<li>Load the code to an Arduino Board</li>
-<li>Useful "code block warnings"</li>
-<li>Compatible with a wide range of official Arduino Boards</li>
-<li>Runs on Windows / Linux / Mac OS X</li>
-</ul>
-<p>Ardublockly is still under development and a few features are not yet implemented. A to-do list can be found in the <a href="TODO.md">TODO.md</a> file.</p>
-<p>Currently tested under Windows with Python 2.7 and 3.4 and in Linux and MacOS X with Python 2.7.</p>
-<h2>Online Demos</h2>
-<p>A demo of the current state of Ardublockly can be found in the following two links (to load the code into an Arduino requires Ardublockly to be executed locally):</p>
-<h4><a href="//ardublockly.embeddedlog.com/demo/index.html">Ardublockly</a> (with responsive design)</h4>
-<p><img alt="WebApp screenshot responsive design" src="//ardublockly.embeddedlog.com/images/screenshot_material_all_small.jpg" /></p>
-<h4><a href="//ardublockly.embeddedlog.com/demo/classic/index.html">Ardublockly classic</a></h4>
-<p><img alt="WebApp screenshot" src="//ardublockly.embeddedlog.com/images/screenshot_1.png" /></p>
-<h2>Installing</h2>
-<p>There is a packaged version for Windows that runs as a stand-alone executable and can be downloaded from the <a href="https://github.com/carlosperate/ardublockly/releases/">Ardublockly repository releases page</a>.</p>
-<p>Installation instructions for developers can be found in <a href="https://github.com/carlosperate/ardublockly/wiki/Installing-Ardublockly">this Github repository Wiki</a>. This will work on Windows, Linux and MacOS X.</p>
-<p>It also needs the <a href="http://arduino.cc/en/main/software">Arduino IDE version 1.6 or higher</a>.</p>
-<h2>Running</h2>
-<ol>
-<li><a href="https://github.com/carlosperate/ardublockly/wiki/Installing-Ardublockly">Install Ardublockly</a>.</li>
-<li>Install the <a href="http://arduino.cc/en/main/software/">Arduino IDE</a> version 1.6 or higher.</li>
-<li>Run Ardublockly as defined in your installation method.</li>
-<li>Configure Ardublockly to locate the Arduino IDE <a href="https://github.com/carlosperate/ardublockly/wiki/Configure-Ardublockly">following these instructions</a>.</li>
-</ol>
-<h2>Documentation</h2>
-<p>The documentation, including installation instructions, configuration instructions, and developer information can be found in the <a href="https://github.com/carlosperate/ardublockly/wiki">Ardublockly GitHub repository Wiki</a>.</p>
-<p>To download the documentation you can git clone the wiki data:</p>
-<div class="highlight"><pre>git clone https://github.com/carlosperate/ardublockly.wiki.git
-</pre></div>
-
-
-<h2>Credit</h2>
-<p>This project has been influenced by BlocklyDuino.</p>
-<p>Blockly original source is Copyright of Google Inc. <a href="https://developers.google.com/blockly/">https://developers.google.com/blockly/</a></p>
-<h5>Significant changes to Blockly</h5>
-<p>Added Arduino code generator, static typing and additional code warnings.</p>
-<p>All changes to the original source code can be reviewed <a href="https://github.com/carlosperate/ardublockly/compare/blockly-original...master">here</a>.</p>
-<h2>License</h2>
-<p>Licensed under the Apache License, Version 2.0 (the "License").</p>
-<p>The full document can be found in the <a href="https://github.com/carlosperate/ardublockly/blob/master/LICENSE">LICENSE</a> file.</p>
-        </div>
-    </section>
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
-
-<section class="well well-sm">
-    <ul class="list-group list-group-flush">
-            <li class="list-group-item"><img src="//www.embeddedlog.com/images/theme/profile.jpg" class="profile_pic" /><h4><span class="icon-label">Social</span></h4>
-              <ul class="list-group" id="social">
-                <li class="list-group-item"><a href="https://github.com/carlosperate" target="_blank"><i class="fa fa-github-square fa-lg"></i> github</a></li>
-                <li class="list-group-item"><a href="https://twitter.com/carlosperate" target="_blank"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
-                <li class="list-group-item"><a href="https://plus.google.com/109111328639820363664" target="_blank"><i class="fa fa-google-plus-square fa-lg"></i> google+</a></li>
-              </ul>
-            </li>
-
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
-                <ul class="list-group" id="recentposts">
-                    <li class="list-group-item">
-                        <a href="//www.embeddedlog.com/static-docs-from-github-wiki.html">
-                            Build static documentation from a GitHub Wiki
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-            <li class="list-group-item"><a href="//www.embeddedlog.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group " id="tags">
-                    <li class="list-group-item tag-4">
-                        <a href="//www.embeddedlog.com/tag/documentation.html">
-                            documentation
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="//www.embeddedlog.com/tag/github.html">
-                            github
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="//www.embeddedlog.com/tag/web-tech.html">
-                            web-tech
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-
-    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
-        <div id="gh_repos">
-            <p class="list-group-item">Status updating...</p>
-        </div>
-            <a href="https://github.com/carlosperate" target="_blank">@carlosperate</a> on GitHub
-    </li>
-    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-      <ul class="list-group" id="links">
-        <li class="list-group-item">
-            <a href="http://www.theamphour.com" target="_blank">
-                The Amp Hour podcast
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="http://embedded.fm" target="_blank">
-                Embedded.fm podcast
-            </a>
+  <!-- Sidebar navigation -->
+  <ul id="slide-out" class="side-nav">
+    <li class="logo"><img src="ardublockly/img/sidenav_header.png" alt="Ardublockly block image"></li>
+    <li class="no-padding">
+      <ul>
+        <li id="menu_load"><a href="#"><span class="translatable_open">Open</span><i class="mdi-file-file-upload left"></i></a></li>
+        <li id="menu_save"><a href="#"><span class="translatable_save">Save</span><i class="mdi-file-file-download left"></i></a></li>
+        <li id="menu_delete"><a href="#"><span class="translatable_deleteAll">Delete All</span><i class="mdi-action-delete left"></i></a></li>
+        <li id="menu_settings"><a href="#"><span class="translatable_settings">Settings</span><i class="mdi-action-settings left"></i></a></li>
+        <li id="menu_bug"><a href="https://github.com/carlosperate/ardublockly/wiki" target="_blank"><span class="translatable_documentation">Documentation</span><i class="mdi-action-help left"></i></a></li>
+        <li id="menu_bug"><a href="http://github.com/carlosperate/ardublockly/issues" target="_blank"><span class="translatable_reportBug">Report Bug</span><i class="mdi-action-bug-report left"></i></a></li>
+      </ul>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <div class="collapsible-header"><span class="translatable_examples">Examples</span><i class="mdi-navigation-arrow-drop-down"></i></div>
+          <div class="collapsible-body">
+            <ul>
+              <li id="menu_example_1"><a href="#!">Blink</a></li>
+              <li id="menu_example_2"><a href="#!">Serial print</a></li>
+              <li id="menu_example_3"><a href="#!">Serial repeat game</a></li>
+              <li id="menu_example_4"><a href="#!">Servo knob</a></li>
+              <li id="menu_example_5"><a href="#!">Stepper knob</a></li>
+            </ul>
+          </div>
         </li>
       </ul>
     </li>
-    </ul>
-</section>
-            </aside>
+    <li class="no-padding side-menu-end">&nbsp;</li>
+  </ul>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l8" style="position:relative">
+        <!-- Toolbox visibility button -->
+        <a id="button_toggle_toolbox" class="waves-effect waves-light btn-flat button_toggle_toolbox_off" style="display: none"><i id="button_toggle_toolbox_icon" class="mdi-action-visibility-off"></i></a>
+        <!-- Arduino IDE action buttons -->
+        <div id="ide_buttons_wrapper">
+          <a id="button_ide_left" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_yellow"><i id="button_ide_left_icon" class="mdi-action-open-in-browser"></i></a>
+          <a id="button_ide_middle" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_teal"><i id="button_ide_middle_icon" class="mdi-navigation-check"></i></a>
+          <a id="button_ide_large" class="waves-effect waves-light waves-circle btn-floating z-depth-1-half arduino_orange"><i id="button_ide_large_icon" class="mdi-av-play-arrow"></i></a>
+          <div id="button_ide_large_spinner" class="preloader-wrapper active ide_loader" style="display:none">
+            <div class="spinner-layer spinner-orange">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-dark-teal">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-light-teal">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
-<footer>
-   <div class="container">
-      <hr>
-      <div class="row container_footer">
-         <div class="col-xs-9">
-            <p>
-               &copy; 2015 <a href="https://github.com/carlosperate" target="_blank">carlosperate</a>
-               &middot; Powered by 
-               <a href="http://docs.getpelican.com/" target="_blank">Pelican</a> and 
-               <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
-            </p>
-            <p><small>                     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
-  <!--a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a-->
-
-               Attribution for all other resources used can be found <a href="//www.embeddedlog.com/credits/index.html">here.</a>
-            </small></p>
-         </div>
-         <div class="col-xs-3"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+        <!-- Blockly Panel -->
+        <div class="card-panel white" style="padding: 0">
+          <div id="blocks_panel" class="content blocks_panel_large">
+            <div id="content_blocks" class="content z-depth-1"></div>
+          </div>
+        </div>
       </div>
-   </div>
-</footer>
-<script src="//www.embeddedlog.com/theme/js/jquery.min.js"></script>
+      <div class="col s12 m12 l4">
+        <ul class="collapsible z-depth-1" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header active">
+              <span class="collapsible_logo">{ }</span>
+              <span class="translatable_arduinoSourceCode">Arduino Source Code</span>
+            </div>
+            <div class="collapsible-body">
+              <pre id="content_arduino" class="content content_height_transition content_arduino_large"></pre>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header" id="xml_collapsible_header">
+              <span class="collapsible_logo">&#60; &#62;</span>
+              <span class="translatable_blocksXml">Blocks XML</span>
+            </div>
+            <div class="collapsible-body" style="position:relative" id="xml_collapsible_body">
+              <a class="btn-floating btn-large waves-effect waves-light arduino_teal z-depth-1-half" id="button_load_xml"><i class="mdi-action-extension"></i></a>
+              <textarea id="content_xml" class="content content_height_transition content_xml_large" wrap="soft"></textarea>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="//www.embeddedlog.com/theme/js/bootstrap.min.js"></script>
+  <!-- IDE Output content -->
+  <div class="ide_output_wrapper">
+    <ul class="collapsible ide_output_collapsible" data-collapsible="expandable">
+      <li>
+        <div id="ide_output_collapsible_header" class="collapsible-header ide_output_header_normal">
+          <i class="mdi-action-swap-vert Medium" style="font-size: 2.2rem;"></i>
+          <span class="translatable_arduinoOpMainTitle">Arduino IDE output</span>
+        </div>
+        <div class="collapsible-body">
+          <div id="content_ide_output" class="content"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="ide_output_spacer"></div>
 
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="//www.embeddedlog.com/theme/js/respond.min.js"></script>
+  <!-- Settings: Displayed as a Materialize Modal -->
+  <div id="settings_dialog" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4><span class="translatable_settings">Settings</span></h4>
+      <div class="modal_section">
+        <label><span class="translatable_compilerLocation">Compiler Location</span>:</label>
+        <input type="text" id="settings_compiler_location">
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_sketchFolder">Sketch Folder</span>:</label>
+        <input type="text" id="settings_sketch_location">
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_arduinoBoard">Arduino Board</span>:</label>
+        <select name="settings_board" id="board">
+          <option value="uno" class="translatable_arduinoBoardDefault">Arduino Board unknown</option>
+        </select>
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_comPort">COM Port<span>:</label>
+        <select name="settings_serial" id="serial_port">
+          <option value="COMX" class="translatable_comPortDefault">COM Port unknown</option>
+        </select>
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_defaultIdeButton">Default IDE button</span>:</label>
+        <select name="settings_ide" id="ide_settings">
+          <option value="verify" class="translatable_defaultIdeButtonDefault">IDE options unknown</option>
+        </select>
+      </div>
+      <div class="modal_section">
+        <label><span class="translatable_language">Language</span>:</label>
+        <select name="settings_language" id="language"></select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect btn-flat modal-close"><span class="translatable_return">Return</span></a>
+    </div>
+  </div>
 
-    <script src="//www.embeddedlog.com/theme/js/bodypadding.js"></script>
-    <!-- GitHub JS -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            if (!window.jXHR) {
-                var jxhr = document.createElement('script');
-                jxhr.type = 'text/javascript';
-                jxhr.src = '//www.embeddedlog.com/theme/js/jXHR.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(jxhr, s);
-            }
+  <!-- Select Additional Blocks menu -->
+  <div id="blocks_menu" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <div>
+        <h4><span class="translatable_addBlocksTitle">Additional Blocks</span></h4>
+      </div>
+      <div id="blocks_menu_body"></div>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect btn-flat modal-close"><span class="translatable_return">Return</span></a>
+    </div>
+  </div>
 
-            github.showRepos({
-                user: 'carlosperate',
-                count: 5,
-                skip_forks: true,
-                target: '#gh_repos'
-            });
-        });
-    </script>
-    <script src="//www.embeddedlog.com/theme/js/github.js" type="text/javascript"></script>
-    <!-- End GitHub JS Code -->
-    <!-- Google Analytics -->
-    <script type="text/javascript">
+  <!-- General Alert: Content is loaded using JavaScript to display alerts -->
+  <div id="gen_alert" class="modal modal_small modal-fixed-footer">
+    <div class="modal-content">
+      <h5 id="gen_alert_title">Empty Alert</h4>
+      <p><span id="gen_alert_body">Empty alert text</span></p>
+    </div>
+    <div class="modal-footer">
+      <a id="gen_alert_ok_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_okay">Okay</span></a>
+      <a id="gen_alert_cancel_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_cancel">Cancel</span></a>
+    </div>
+  </div>
 
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-58081399-1']);
-        _gaq.push(['_trackPageview']);
+  <!-- Prompt: Content is loaded using JavaScript to display input prompt -->
+  <div id="gen_prompt" class="modal modal_small modal-fixed-footer">
+    <div class="modal-content">
+      <p><span id="gen_prompt_message">Prompt message</span></p>
+      <p><input id="gen_prompt_input" value="test" /></p>
+    </div>
+    <div class="modal-footer">
+      <a id="gen_prompt_ok_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_okay">Okay</span></a>
+      <a id="gen_prompt_cancel_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_cancel">Cancel</span></a>
+    </div>
+  </div>
 
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!-- End Google Analytics Code -->
+  <!-- Local Modal to be shown if Ardublockly Server is not running. -->
+  <div id="not_running_dialog" class="modal">
+    <div class="modal-content">
+      <div>
+        <h4 id="gen_alert_title"><span class="translatable_noServerTitle">Ardublockly app not running</span></h4>
+      </div>
+      <div class="translatable_noServerBody">
+        <p>For all the Ardublockly features to be enabled, the Ardublockly desktop application must be running locally on your computer.</p>
+        <p>If you are using an online version you will not be able to configure the settings nor load the blocks code into an Arduino.</p>
+        <p>Installation instruction can be found in the <a href="https://github.com/carlosperate/ardublockly">Ardublockly repository</a>.</p>
+        <p>If you have Ardublockly already installed, make sure the application is running correctly.</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a id="gen_alert_ok_link" href="#" class="waves-effect btn-flat modal-close"><span class="translatable_okay">Okay</span></a>
+    </div>
+  </div>
 
-    <!-- Banner carousel control -->
-    <script type="text/javascript">
-        /** Stops the carousel and sets it to a specific project */
-        window.addEventListener("load", function() {
-            $(".carousel").carousel(0);
-            $(".carousel").carousel('pause');
-            $("#carousel-control-prev").css("visibility", "hidden");
-            $("#carousel-control-next").css("visibility", "hidden");
-            $("#carousel-indicators").css("display", "none");
-            $(".carousel-indicators-placeholder").css("display", "none");
-        });
-    </script>
-    <!-- End Banner carousel control -->
+  <!-- Desktop version of Ardublockly JS, needs to be loaded first. -->
+  <script src="ardublockly/ardublockly_desktop.js"></script>
+  <!-- jQuery and Materialize JS -->
+  <script src="ardublockly/js_libs/jquery-2.1.3.min.js"></script>
+  <script src="ardublockly/materialize/materialize.js"></script>
+  <!-- FileSaver JS -->
+  <script src="ardublockly/js_libs/FileSaver.min.js"></script>
+  <!-- JS Diff -->
+  <script src="ardublockly/js_libs/diff.js"></script>
+  <!-- Prettify JS -->
+  <script src="ardublockly/prettify/prettify.js"></script>
+  <!-- Ardublockly app -->
+  <script src="ardublockly/ardublocklyserver_ajax.js"></script>
+  <script src="ardublockly/ardublockly_lang.js"></script>
+  <script src="ardublockly/ardublockly_design.js"></script>
+  <script src="ardublockly/ardublockly_toolbox.js"></script>
+  <script src="ardublockly/ardublockly_blockly.js"></script>
+  <script src="ardublockly/ardublockly.js"></script>
+  <script>
+    window.addEventListener('load', function load(event) {
+      window.removeEventListener('load', load, false);
+      Ardublockly.init();
+    });
+  </script>
 </body>
 </html>
