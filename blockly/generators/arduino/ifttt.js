@@ -25,7 +25,7 @@ Blockly.Arduino['ifttt_webhooks_settings'] = function(block) {
   let key = Blockly.Arduino.valueToCode(block, 'API_KEY', Blockly.Arduino.ORDER_ATOMIC) || "";
   let name = Blockly.Arduino.valueToCode(block, 'NAME', Blockly.Arduino.ORDER_ATOMIC) || "";
 
-  Blockly.Arduino.addInclude('ifttt_webhook', '#include "IFTTTWebhook.h"');
+  Blockly.Arduino.addInclude('ifttt_webhook', '#include <IFTTTWebhook.h>');
   Blockly.Arduino.addDeclaration(
     webhook_name,
       'IFTTTWebhook* ' + webhook_name + ';'
