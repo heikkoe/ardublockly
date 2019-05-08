@@ -30,7 +30,7 @@ Blockly.Arduino['neopixel_settings'] = function(block) {
       block, 'NEOPIXEL_COUNT', Blockly.Arduino.ORDER_ATOMIC) || '30';
   var stripName = block.getFieldValue('WS2812_NAME');
 
-  Blockly.Arduino.addInclude('servo', '#include <Adafruit_NeoPixel.h>');
+  Blockly.Arduino.addInclude('neopixel', '#include <Adafruit_NeoPixel.h>');
   Blockly.Arduino.addDeclaration(
     stripName,
       'Adafruit_NeoPixel ' + stripName + ';'
