@@ -11,6 +11,11 @@ ehthumbs.db
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+Frameworks/
+Info.plist
+MacOS/
+PkgInfo
+Resources/
 
 ########
 # IDEs #
